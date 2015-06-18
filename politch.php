@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Politch
  * Description: Plugin to display politicians profiles. Especially designed for swiss needs.
- * Version: 1.0.0
+ * Version: 0.9.0-alpha
  * Author: Cyrill Bolliger
  * Author URI: http://www.cyrillbolliger.ch
  * Text Domain: politch
@@ -42,7 +42,7 @@ define( 'POLITCH_PLUGIN_PATH', dirname( __FILE__ ) );
 /**
  * version number (dont forget to change it also in the header)
  */
-define( 'POLITCH_VERSION', '1.0.0' );
+define( 'POLITCH_VERSION', '0.9.0-alpha' );
 
 /**
  * plugin prefix
