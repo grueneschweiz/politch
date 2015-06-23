@@ -29,6 +29,13 @@ if( ! class_exists( 'Politch_Settings' ) ) {
 				'in_footer'  => true, // bool
 				'scope'      => 'admin', // admin | frontend | shared
 			);
+			$this->scripts[] = array(
+				'handle'     => 'politch-frontend-js', // string
+				'src'        => '/js/politch-frontend-js.js', // string relative to plugin folder
+				'deps'       => array( 'jquery' ), // array
+				'in_footer'  => true, // bool
+				'scope'      => 'frontend', // admin | frontend | shared
+			);
 			
 			$this->styles[] = array(
 				'handle'    => 'politch-admin-css', // string
@@ -36,6 +43,13 @@ if( ! class_exists( 'Politch_Settings' ) ) {
 				'deps'      => array(), // array
 				'media'     => 'all', // css media tag
 				'scope'     => 'admin', // admin | frontend | shared
+			);
+			$this->styles[] = array(
+				'handle'    => 'politch-frontend-css', // string
+				'src'       => '/css/politch-frontend-css.css', // string relative to plugin folder
+				'deps'      => array(), // array
+				'media'     => 'all', // css media tag
+				'scope'     => 'frontend', // admin | frontend | shared
 			);
 			
 			$network_tables = array(); // put your table names in this array (whitout prefix and stuff)

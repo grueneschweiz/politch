@@ -72,10 +72,10 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			add_action( 'init', array( &$this, 'fe_init' ) );
 			add_action( 'admin_init', array( &$this, 'admin_init' ) );
 			add_action( 'admin_menu', array( &$this, 'add_menu' ) );
+			add_action( 'plugins_loaded', array( &$this, 'i18n' ) );
 			//add_action( 'admin_head', array( &$this, 'load_politch_mce_plugin' ) );
 			add_action( 'wp_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'load_resources' ) );
-			add_action( 'plugins_loaded', array( &$this, 'i18n' ) );
 			add_action( 'tgmpa_register', array( &$this, 'register_required_plugins' ) );
 		}
 		
