@@ -8,13 +8,13 @@ div.politch-person div.attachment-post-thumbnail img.attachment-thumbnail
 	{ border-radius: 5px; cursor: pointer; }
 
 div.politch-person header.politch-entry-header h1
-	{ margin-bottom: 0; cursor: pointer; }
+	{ cursor: pointer; }
 	
 div.politch-person header.politch-entry-header div.politch-preson-preview-info
 	{ float: left; }
 
 div.politch-person header.politch-entry-header div.politch-preson-preview-info h2
-	{ margin-top: 0; }
+	{ margin-top: -1em; }
 
 div.politch-person header.politch-entry-header div.politch-preson-preview-info div.politch-person-mail,
 div.politch-person header.politch-entry-header div.politch-preson-preview-info div.politch-person-cv

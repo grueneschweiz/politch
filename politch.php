@@ -152,7 +152,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * Name the translation files like "nameofplugin-lanugage_COUUNTRY.po". Ex: "politch-fr_FR.po"
 		 */
 		public function i18n() {
-			$path = POLITCH_PLUGIN_PATH . '/languages';
+			$path = dirname( plugin_basename(__FILE__) ) . '/languages';
 			load_plugin_textdomain( 'politch', false, $path );
 		}
 		

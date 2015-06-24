@@ -50,10 +50,12 @@ foreach( $person['groups_slugs'] as $slug ) {
 				<a href="mailto:<?php echo $person[$prefix.'email'][0]; ?>"><?php echo $person[$prefix.'email'][0]; ?></a>
 			</div>
 			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'brief_cv'][0] ) ) : ?>
-				<div class="politch-person-cv">
-					<?php echo $person[$prefix.'brief_cv'][0]; ?>
-				</div>
+			<?php if( $show_election_info ) : ?>
+				<?php if ( ! empty( $person[$prefix.'brief_cv'][0] ) ) : ?>
+					<div class="politch-person-cv">
+						<?php echo $person[$prefix.'brief_cv'][0]; ?>
+					</div>
+				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 		<div class="clear"></div>

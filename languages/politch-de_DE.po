@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Politch\n"
-"POT-Creation-Date: 2015-06-18 15:58+0100\n"
-"PO-Revision-Date: 2015-06-18 15:59+0100\n"
+"POT-Creation-Date: 2015-06-24 16:46+0100\n"
+"PO-Revision-Date: 2015-06-24 16:47+0100\n"
 "Last-Translator: Cyrill Bolliger <bolliger@gmx.ch>\n"
 "Language-Team: Cyrill Bolliger <bolliger@gmx.ch>\n"
 "Language: DE\n"
@@ -22,38 +22,38 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Sie haben nicht ausreichende Rechte um diese Seite anzuzeigen."
 
-#: ../politch.php:438 ../vendor/class-tgm-plugin-activation.php:161
+#: ../politch.php:446 ../vendor/class-tgm-plugin-activation.php:161
 msgid "Install Required Plugins"
 msgstr "Benötigte Plugins installieren"
 
-#: ../politch.php:439 ../vendor/class-tgm-plugin-activation.php:162
+#: ../politch.php:447 ../vendor/class-tgm-plugin-activation.php:162
 msgid "Install Plugins"
 msgstr "Plugins installieren"
 
-#: ../politch.php:440 ../vendor/class-tgm-plugin-activation.php:163
+#: ../politch.php:448 ../vendor/class-tgm-plugin-activation.php:163
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr "Folgendes Plugin wird installiert: %s"
 
-#: ../politch.php:441
+#: ../politch.php:449
 msgid "Something went wrong with the plugin API."
 msgstr "Leider gab es einen Fehler mit der plugin API."
 
-#: ../politch.php:442
+#: ../politch.php:450
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] "Dieses Theme benötigt das folgende Plugin: %1$s."
 msgstr[1] "Dieses Theme benötigt die folgenden Plugins: %1$s."
 
-#: ../politch.php:443
+#: ../politch.php:451
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] "Dieses Theme empfiehlt das folgende Plugin: %1$s."
 msgstr[1] "Dieses Theme empfiehlt die folgenden Plugins: %1$s."
 
-#: ../politch.php:444 ../vendor/class-tgm-plugin-activation.php:167
+#: ../politch.php:452 ../vendor/class-tgm-plugin-activation.php:167
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -72,7 +72,7 @@ msgstr[1] ""
 "installieren. Für weitere Infos kontaktieren Sie bitte den Administrator "
 "dieser Seite."
 
-#: ../politch.php:445 ../vendor/class-tgm-plugin-activation.php:168
+#: ../politch.php:453 ../vendor/class-tgm-plugin-activation.php:168
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
@@ -81,14 +81,14 @@ msgstr[0] ""
 msgstr[1] ""
 "Die folgenden zwingend benötigten Plugins sind momentan deaktiviert: %1s."
 
-#: ../politch.php:446 ../vendor/class-tgm-plugin-activation.php:169
+#: ../politch.php:454 ../vendor/class-tgm-plugin-activation.php:169
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] "Das folgende empfohlene Plugin ist momentan deaktiviert: %1s."
 msgstr[1] "Die folgenden empfohlenen Plugins sind momentan deaktiviert: %1s."
 
-#: ../politch.php:447 ../vendor/class-tgm-plugin-activation.php:170
+#: ../politch.php:455 ../vendor/class-tgm-plugin-activation.php:170
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
@@ -105,7 +105,7 @@ msgstr[1] ""
 "Leider haben Sie keine ausreichenden Rechte um die Plugins %s zu aktivieren. "
 "Für weitere Infos kontaktieren Sie bitte den Administrator dieser Seite."
 
-#: ../politch.php:448
+#: ../politch.php:456
 #, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -120,7 +120,7 @@ msgstr[1] ""
 "Die folgenden Plugins müssen upgedated werden damit die maximale "
 "Kompatibilität gewährleistet ist: %1$s."
 
-#: ../politch.php:449 ../vendor/class-tgm-plugin-activation.php:172
+#: ../politch.php:457 ../vendor/class-tgm-plugin-activation.php:172
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -137,35 +137,31 @@ msgstr[1] ""
 "Leider haben Sie keine ausreichenden Rechte um die Plugins %s zu updaten. "
 "Für weitere Infos kontaktieren Sie bitte den Administrator dieser Seite."
 
-#: ../politch.php:450 ../vendor/class-tgm-plugin-activation.php:173
+#: ../politch.php:458 ../vendor/class-tgm-plugin-activation.php:173
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] "Beginn der Plugin Installation"
 msgstr[1] "Beginn der Plugin Installation"
 
-#: ../politch.php:451 ../vendor/class-tgm-plugin-activation.php:174
+#: ../politch.php:459 ../vendor/class-tgm-plugin-activation.php:174
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] "Beginn der Plugin Aktivierung"
 msgstr[1] "Beginn der Plugin Aktivierung"
 
-#: ../politch.php:452 ../vendor/class-tgm-plugin-activation.php:175
+#: ../politch.php:460 ../vendor/class-tgm-plugin-activation.php:175
 msgid "Return to Required Plugins Installer"
 msgstr "Zurück zum Plugin-Installer für zwingend benötigte Plugins"
 
-#: ../politch.php:453 ../vendor/class-tgm-plugin-activation.php:177
+#: ../politch.php:461 ../vendor/class-tgm-plugin-activation.php:177
 #: ../vendor/class-tgm-plugin-activation.php:1956
 msgid "Plugin activated successfully."
 msgstr "Plugin erfolgreich aktiviert."
 
-#: ../politch.php:454
+#: ../politch.php:462
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr "Alle plugins wurden erfolgreich installiert und aktiviert. %s"
-
-#: ../settings.php:48
-msgid "Politch_user"
-msgstr "Politch user"
 
 #: ../frontend/class-politch-frontend.php:18
 msgid "Unknown shortcode or invalid arguments."
@@ -192,64 +188,72 @@ msgstr "Telefon:"
 msgid "Mobile:"
 msgstr "Handy:"
 
-#: ../frontend/politch-person.php:84
-msgid "Website:"
-msgstr "Website:"
+#: ../frontend/politch-person.php:85 ../frontend/politch-person.php:86
+#: ../includes/class-politch-post-type.php:244
+msgid "Website"
+msgstr "Website"
 
-#: ../frontend/politch-person.php:90
-msgid "Facebook:"
-msgstr "Facebook:"
+#: ../frontend/politch-person.php:91 ../frontend/politch-person.php:92
+#: ../includes/class-politch-post-type.php:251
+msgid "Facebook"
+msgstr "Facebook"
 
-#: ../frontend/politch-person.php:96
-msgid "Twitter:"
-msgstr "Twitter:"
+#: ../frontend/politch-person.php:97 ../frontend/politch-person.php:98
+#: ../includes/class-politch-post-type.php:258
+msgid "Twitter"
+msgstr "Twitter"
 
-#: ../frontend/politch-person.php:102
-msgid "LinkedIn:"
-msgstr "LinkedIn:"
+#: ../frontend/politch-person.php:103 ../frontend/politch-person.php:104
+#: ../includes/class-politch-post-type.php:265
+msgid "LinkedIn"
+msgstr "LinkedIn"
 
-#: ../frontend/politch-person.php:108
-msgid "Google Plus:"
-msgstr "Google Plus:"
+#: ../frontend/politch-person.php:109 ../frontend/politch-person.php:110
+#: ../includes/class-politch-post-type.php:272
+msgid "Google Plus"
+msgstr "Google Plus"
 
-#: ../frontend/politch-person.php:114
-msgid "Youtube:"
-msgstr "Youtube:"
+#: ../frontend/politch-person.php:115 ../frontend/politch-person.php:116
+#: ../includes/class-politch-post-type.php:279
+msgid "Youtube"
+msgstr "Youtube"
 
-#: ../frontend/politch-person.php:120
-msgid "Vimeo:"
-msgstr "Vimeo:"
+#: ../frontend/politch-person.php:121 ../frontend/politch-person.php:122
+#: ../includes/class-politch-post-type.php:286
+msgid "Vimeo"
+msgstr "Vimeo"
 
-#: ../frontend/politch-person.php:127
-msgid "Election info"
-msgstr "Wahlinfo"
-
-#: ../frontend/politch-person.php:131
-msgid "Ticket name:"
-msgstr "Listenname:"
-
-#: ../frontend/politch-person.php:137
-msgid "Ticket number:"
-msgstr "Listennummer:"
-
-#: ../frontend/politch-person.php:143
-msgid "Candidate number:"
-msgstr "Kandidierendennummer:"
-
-#: ../frontend/politch-person.php:149
-msgid "District:"
-msgstr "Wahlkreis:"
-
-#: ../frontend/politch-person.php:155
+#: ../frontend/politch-person.php:127 ../frontend/politch-person.php:128
+#: ../frontend/politch-person.php:165
 msgid "Smartvote"
 msgstr "Smartvote"
 
-#: ../frontend/politch-person.php:164
+#: ../frontend/politch-person.php:137
+msgid "Election info"
+msgstr "Wahlinfo"
+
+#: ../frontend/politch-person.php:141
+msgid "Ticket name:"
+msgstr "Listenname:"
+
+#: ../frontend/politch-person.php:147
+msgid "Ticket number:"
+msgstr "Listennummer:"
+
+#: ../frontend/politch-person.php:153
+msgid "Candidate number:"
+msgstr "Kandidierendennummer:"
+
+#: ../frontend/politch-person.php:159
+msgid "District:"
+msgstr "Wahlkreis:"
+
+#: ../frontend/politch-person.php:174
 #: ../includes/class-politch-post-type.php:143
 msgid "Mandates"
 msgstr "Mandate"
 
-#: ../frontend/politch-person.php:176
+#: ../frontend/politch-person.php:186
 #: ../includes/class-politch-post-type.php:151
 msgid "Memberships"
 msgstr "Mitgliedschaften"
@@ -492,57 +496,29 @@ msgstr "Handy"
 msgid "Mobilephone number"
 msgstr "Handynummer"
 
-#: ../includes/class-politch-post-type.php:244
-msgid "Website"
-msgstr "Website"
-
 #: ../includes/class-politch-post-type.php:245
 msgid "Website URL"
 msgstr "Link zur Website des Kandidierenden"
-
-#: ../includes/class-politch-post-type.php:251
-msgid "Facebook"
-msgstr "Facebook"
 
 #: ../includes/class-politch-post-type.php:252
 msgid "Facebook profile or page link."
 msgstr "Link zum Facebook-Profil oder der Facebook-Fanseite"
 
-#: ../includes/class-politch-post-type.php:258
-msgid "Twitter"
-msgstr "Twitter"
-
 #: ../includes/class-politch-post-type.php:259
 msgid "Twitter profile link."
 msgstr "Link zum Twitter-Profil"
-
-#: ../includes/class-politch-post-type.php:265
-msgid "LinkedIn"
-msgstr "LinkedIn"
 
 #: ../includes/class-politch-post-type.php:266
 msgid "LinkedIn profile link."
 msgstr "Link zum LinkedIn-Profil"
 
-#: ../includes/class-politch-post-type.php:272
-msgid "Google Plus"
-msgstr "Google Plus"
-
 #: ../includes/class-politch-post-type.php:273
 msgid "Google Plus profile link."
 msgstr "Link zum Google Plus-Profil"
 
-#: ../includes/class-politch-post-type.php:279
-msgid "Youtube"
-msgstr "Youtube"
-
 #: ../includes/class-politch-post-type.php:280
 msgid "Youtube profile link."
 msgstr "Link zum Youtubekanal"
-
-#: ../includes/class-politch-post-type.php:286
-msgid "Vimeo"
-msgstr "Vimeo"
 
 #: ../includes/class-politch-post-type.php:287
 msgid "Vimeo profile link."
@@ -775,6 +751,30 @@ msgstr "Alle Installationen wurden erfolgreich abgeschlossen."
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr "Plugin %1$s (%2$d/%3$d) wird installiert"
+
+#~ msgid "Politch_user"
+#~ msgstr "Politch user"
+
+#~ msgid "Website:"
+#~ msgstr "Website:"
+
+#~ msgid "Facebook:"
+#~ msgstr "Facebook:"
+
+#~ msgid "Twitter:"
+#~ msgstr "Twitter:"
+
+#~ msgid "LinkedIn:"
+#~ msgstr "LinkedIn:"
+
+#~ msgid "Google Plus:"
+#~ msgstr "Google Plus:"
+
+#~ msgid "Youtube:"
+#~ msgstr "Youtube:"
+
+#~ msgid "Vimeo:"
+#~ msgstr "Vimeo:"
 
 #~ msgid "Unterschriften eintragen"
 #~ msgstr "Ajouter signatures"
