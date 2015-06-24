@@ -1,0 +1,46 @@
+/**
+ * jQuery wrapper
+ */
+( function( $ ) {
+	var Profile = new Profile();
+	
+	/**
+	 * handels all show and hideing stuff
+	 */
+	function Profile() {
+		
+		var self = this;
+		
+		/**
+		 * initiatelize sliders
+		 */
+		this.init = function init() {
+			$( 'div.politch-person-fullpost' ).hide();
+			$( 'div.politch-preson-preview-info div.politch-person-cv' ).hide();
+			
+			$( "div[id^='politch-person-']" ).each( function( index, element ) {
+				$( element ).find( 'span.toggle-button' ).click( function() {
+					$( element ).find( 'div.politch-person-fullpost' ).slideToggle();
+					$( element ).find( 'div.politch-preson-preview-info div.politch-person-mail' ).slideToggle();
+					$( element ).find( 'div.politch-preson-preview-info div.politch-person-cv' ).slideToggle();
+				} );
+			} );
+		};
+	}
+
+	/**
+	 * fires after DOM is loaded
+	 */
+	$( document ).ready(function() {
+		Profile.init();
+		
+	});
+	
+	/**
+	 * fires on resizeing of the window
+	 */
+	jQuery( window ).resize( function() {
+		
+	});
+	
+} )( jQuery );

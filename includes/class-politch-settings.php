@@ -35,7 +35,7 @@ if( ! class_exists( 'Politch_Settings' ) ) {
 			$this->scripts[] = array(
 				'handle'     => 'politch-frontend-js', // string
 				'src'        => '/js/politch-frontend-js.js', // string relative to plugin folder
-				'deps'       => array( 'jquery' ), // array
+				'deps'       => array( 'jquery', 'jquery-ui-dialog' ), // array
 				'in_footer'  => true, // bool
 				'scope'      => 'frontend', // admin | frontend | shared
 			);

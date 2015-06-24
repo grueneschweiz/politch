@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Politch
  * Description: Plugin to display politicians profiles. Especially designed for swiss needs.
- * Version: 0.9.0-alpha
+ * Version: 1.0.0
  * Author: Cyrill Bolliger
  * Author URI: http://www.cyrillbolliger.ch
  * Text Domain: politch
@@ -42,7 +42,7 @@ define( 'POLITCH_PLUGIN_PATH', dirname( __FILE__ ) );
 /**
  * version number (dont forget to change it also in the header)
  */
-define( 'POLITCH_VERSION', '0.9.0-alpha' );
+define( 'POLITCH_VERSION', '1.0.0' );
 
 /**
  * plugin prefix
@@ -287,23 +287,31 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			
 			foreach ( $this->styles as $style ) {
 				if ( is_admin() && $style['scope'] == ( 'admin' || 'shared' ) ) {
-					$this->register_style( $style );
-					wp_enqueue_style( $style['handle'] );
+					if ( ! wp_style_is( $style['handle'], 'enqueued' ) ) {
+						$this->register_style( $style );
+						wp_enqueue_style( $style['handle'] );
+					}
 				}
 				if ( ! is_admin() && $style['scope'] == ( 'frontend' || 'shared' ) ) {
-					$this->register_style( $style );
-					wp_enqueue_style( $style['handle'] );
+					if ( ! wp_style_is( $style['handle'], 'enqueued' ) ) {
+						$this->register_style( $style );
+						wp_enqueue_style( $style['handle'] );
+					}
 				}
 			}
 			
 			foreach ( $this->scripts as $script ) {
 				if ( is_admin() && $script['scope'] == ( 'admin' || 'shared' ) ) {
-					$this->register_script( $script );
-					wp_enqueue_script( $script['handle'] );
+					if ( ! wp_script_is( $script['handle'], 'enqueued' ) ) {
+						$this->register_script( $script );
+						wp_enqueue_script( $script['handle'] );
+					}
 				}
 				if ( ! is_admin() && $script['scope'] == ( 'frontend' || 'shared' ) ) {
-					$this->register_script( $script );
-					wp_enqueue_script( $script['handle'] );
+					if ( ! wp_script_is( $script['handle'], 'enqueued' ) ) {
+						$this->register_script( $script );
+						wp_enqueue_script( $script['handle'] );
+					}
 				}
 			}
 		}

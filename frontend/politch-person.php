@@ -10,34 +10,36 @@ foreach( $person['groups_slugs'] as $slug ) {
 ?>
 <div id="politch-person-<?php echo $person['id']; ?>" class="politch-person-preview politch-person <?php echo implode( ' ', $slugs ); ?>">
 	<header class="entry-header politch-entry-header">
-		<a rel="bookmark" href="#" data-politch-id="<?php echo $person['id']; ?>">
+		<span class="toggle-button" data-politch-id="<?php echo $person['id']; ?>">
 			<div class="attachment-post-thumbnail attachment-default-post-thumbnail-wrapper">
 				<?php echo $person['portrait']; ?>
 			</div>
-		</a>
-		<h1 class="entry-title politch-entry-title">
-			<a rel="bookmark" href="#" data-politch-id="<?php echo $person['id']; ?>">
-				<?php echo $person['name']; ?>
-			</a>
-		</h1>
-		<?php if( $show_election_info ) : ?>
-			<h2>
-				<?php 
-					$yob_n_city = array();
-					if ( ! empty( $person[$prefix.'year_of_birth'][0] ) ) {
-						array_push( $yob_n_city, $person[$prefix.'year_of_birth'][0] );
-					}
-					if ( ! empty( $person[$prefix.'city'][0] ) ) {
-						array_push( $yob_n_city, $person[$prefix.'city'][0] );
-					}
-					if ( ! empty( $yob_n_city ) ) {
-						$yob_n_city_string = implode( ', ', $yob_n_city );
-						echo $yob_n_city_string;
-					}
-				?>
-			</h2>
-		<?php endif; ?>
+		</span>
+		
 		<div class="politch-preson-preview-info">
+			<h1 class="entry-title politch-entry-title">
+				<span class="toggle-button" href="#" data-politch-id="<?php echo $person['id']; ?>">
+					<?php echo $person['name']; ?>
+				</span>
+			</h1>
+			<?php if( $show_election_info ) : ?>
+				<h2 class="politch-yob-n-city">
+					<?php 
+						$yob_n_city = array();
+						if ( ! empty( $person[$prefix.'year_of_birth'][0] ) ) {
+							array_push( $yob_n_city, $person[$prefix.'year_of_birth'][0] );
+						}
+						if ( ! empty( $person[$prefix.'city'][0] ) ) {
+							array_push( $yob_n_city, $person[$prefix.'city'][0] );
+						}
+						if ( ! empty( $yob_n_city ) ) {
+							$yob_n_city_string = implode( ', ', $yob_n_city );
+							echo $yob_n_city_string;
+						}
+					?>
+				</h2>
+			<?php endif; ?>
+			
 			<?php if ( ! empty( $person[$prefix.'roles'][0] ) ) : ?>
 			<div class="politch-person-role">
 				<?php echo $person[$prefix.'roles'][0]; ?>
@@ -48,17 +50,15 @@ foreach( $person['groups_slugs'] as $slug ) {
 				<a href="mailto:<?php echo $person[$prefix.'email'][0]; ?>"><?php echo $person[$prefix.'email'][0]; ?></a>
 			</div>
 			<?php endif; ?>
+			<?php if ( ! empty( $person[$prefix.'brief_cv'][0] ) ) : ?>
+				<div class="politch-person-cv">
+					<?php echo $person[$prefix.'brief_cv'][0]; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div class="clear"></div>
 	</header>
 	<div class="politch-person-fullpost">
-		
-		<?php if ( ! empty( $person[$prefix.'brief_cv'][0] ) ) : ?>
-		<div class="politch-person-cv">
-			<?php echo $person[$prefix.'brief_cv'][0]; ?>
-		</div>
-		<?php endif; ?>
-		
 		
 		<div class="politch-contact">
 			<?php if ( ! empty( $person[$prefix.'email'][0] ) ) : ?>
@@ -79,48 +79,58 @@ foreach( $person['groups_slugs'] as $slug ) {
 				<?php echo $person[$prefix.'mobile'][0]; ?>
 			</div>
 			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'website'][0] ) ) : ?>
-			<div class="politch-person-website">
-				<span class="politch-field-label"><?php _e( 'Website:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'website'][0]; ?>"><?php echo $person[$prefix.'website'][0]; ?></a>
+			
+			<div class="politch-social-buttons">
+				<?php if ( ! empty( $person[$prefix.'website'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'website'][0]; ?>" title="<?php _e( 'Website', 'politch' ); ?>" class="politch-person-website politch-icon politch-icon-website">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Website', 'politch' ); ?>: <?php echo $person[$prefix.'website'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'facebook'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'facebook'][0]; ?>" title="<?php _e( 'Facebook', 'politch' ); ?>" class="politch-person-facebook politch-icon politch-icon-facebook">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Facebook', 'politch' ); ?>: <?php echo $person[$prefix.'facebook'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'twitter'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'twitter'][0]; ?>" title="<?php _e( 'Twitter', 'politch' ); ?>" class="politch-person-twitter politch-icon politch-icon-twitter">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Twitter', 'politch' ); ?>: <?php echo $person[$prefix.'twitter'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'linkedin'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'linkedin'][0]; ?>" title="<?php _e( 'LinkedIn', 'politch' ); ?>" class="politch-person-linkedin politch-icon politch-icon-linkedin">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'LinkedIn', 'politch' ); ?>: <?php echo $person[$prefix.'linkedin'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'google_plus'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'google_plus'][0]; ?>" title="<?php _e( 'Google Plus', 'politch' ); ?>" class="politch-person-google_plus politch-icon politch-icon-google_plus">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Google Plus', 'politch' ); ?>: <?php echo $person[$prefix.'google_plus'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'youtube'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'youtube'][0]; ?>" title="<?php _e( 'Youtube', 'politch' ); ?>" class="politch-person-youtube politch-icon politch-icon-youtube">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Youtube', 'politch' ); ?>: <?php echo $person[$prefix.'youtube'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'vimeo'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'vimeo'][0]; ?>" title="<?php _e( 'Vimeo', 'politch' ); ?>" class="politch-person-vimeo politch-icon politch-icon-vimeo">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Vimeo', 'politch' ); ?>: <?php echo $person[$prefix.'vimeo'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<?php if ( ! empty( $person[$prefix.'smartvote'][0] ) ) : ?>
+				<a href="<?php echo $person[$prefix.'smartvote'][0]; ?>" title="<?php _e( 'Smartvote', 'politch' ); ?>" class="politch-person-smartvote politch-icon politch-icon-smartvote">
+					<span class="politch-field-label screen-reader-text"><?php _e( 'Smartvote', 'politch' ); ?>: <?php echo $person[$prefix.'smartvote'][0]; ?></span>
+				</a>
+				<?php endif; ?>
+				
+				<div class="clear"></div>
 			</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'facebook'][0] ) ) : ?>
-			<div class="politch-person-facebook">
-				<span class="politch-field-label"><?php _e( 'Facebook:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'facebook'][0]; ?>"><?php echo $person[$prefix.'facebook'][0]; ?></a>
-			</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'twitter'][0] ) ) : ?>
-			<div class="politch-person-twitter">
-				<span class="politch-field-label"><?php _e( 'Twitter:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'twitter'][0]; ?>"><?php echo $person[$prefix.'twitter'][0]; ?></a>
-			</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'linkedin'][0] ) ) : ?>
-			<div class="politch-person-linkedin">
-				<span class="politch-field-label"><?php _e( 'LinkedIn:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'linkedin'][0]; ?>"><?php echo $person[$prefix.'linkedin'][0]; ?></a>
-			</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'google_plus'][0] ) ) : ?>
-			<div class="politch-person-google_plus">
-				<span class="politch-field-label"><?php _e( 'Google Plus:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'google_plus'][0]; ?>"><?php echo $person[$prefix.'google_plus'][0]; ?></a>
-			</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'youtube'][0] ) ) : ?>
-			<div class="politch-person-youtube">
-				<span class="politch-field-label"><?php _e( 'Youtube:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'youtube'][0]; ?>"><?php echo $person[$prefix.'youtube'][0]; ?></a>
-			</div>
-			<?php endif; ?>
-			<?php if ( ! empty( $person[$prefix.'vimeo'][0] ) ) : ?>
-			<div class="politch-person-vimeo">
-				<span class="politch-field-label"><?php _e( 'Vimeo:', 'politch' ); ?></span>
-				<a href="<?php echo $person[$prefix.'vimeo'][0]; ?>"><?php echo $person[$prefix.'vimeo'][0]; ?>
-			</div>
-			<?php endif; ?>
 		</div>
 		
 		<?php if( $show_election_info ) : ?>
