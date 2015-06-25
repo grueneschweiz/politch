@@ -73,7 +73,6 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			add_action( 'admin_init', array( &$this, 'admin_init' ) );
 			add_action( 'admin_menu', array( &$this, 'add_menu' ) );
 			add_action( 'plugins_loaded', array( &$this, 'i18n' ) );
-			//add_action( 'admin_head', array( &$this, 'load_politch_mce_plugin' ) );
 			add_action( 'wp_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'tgmpa_register', array( &$this, 'register_required_plugins' ) );
@@ -488,36 +487,6 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			$post_type->register_overview();
 		}
 		
-		/**
-		 * initial function to load mce button to enter the shortcode
-		 * 
-		 * check permissions
-		 * check post type
-		 * add filters to further actions
-		 */
-		public function load_politch_mce_plugin() {
-			global $typenow;
-			// check user permissions
-			if ( ! current_user_can( 'politch_edit_person' ) && ! current_user_can( 'politch_edit_person' ) ) {
-				return; // BREAKPOINT
-			}
-			
-			// verify the post type
-			if( ! in_array( $typenow, array( 'post', 'page' ) ) ) {
-				return; // BREAKPOINT
-			}
-			
-			// check if WYSIWYG is enabled
-			if ( 'true' == get_user_option( 'rich_editing' ) ) {
-				// load Politch_Mce_Plugin class
-				require_once( POLITCH_PLUGIN_PATH . '/includes/class-politch-mce-plugin.php' );
-				$mce_plugin = new Politch_Mce_Plugin();
-				
-				add_filter( 'mce_external_plugins', array( $mce_plugin, 'add_mce_plugin' ) );
-				add_filter( 'mce_buttons', array( $mce_plugin, 'register_mce_button' ) );
-				add_filter( 'mce_external_languages', array( $mce_plugin, 'load_mce_plugin_translations' ) );
-			}
-		}
 		
 		/**
 		 * Add a media button to the post & page edit pages to insert shortcode easly
