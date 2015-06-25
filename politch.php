@@ -77,6 +77,8 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			add_action( 'wp_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'tgmpa_register', array( &$this, 'register_required_plugins' ) );
+			add_action( 'media_buttons', array( &$this, 'add_media_button' ), 15 );
+			add_action( 'admin_footer', array( $this, 'add_short_code_generator_html' ), 15 );
 		}
 		
 		/**
@@ -517,13 +519,74 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			}
 		}
 		
+		/**
+		 * Add a media button to the post & page edit pages to insert shortcode easly
+		 * 
+		 * @param    string    $context    given from 'media_buttons_context'-filter
+		 * @return   string
+		 * 
+		 * @see                            http://de.wpseek.com/function/media_buttons/
+		 */
+		public function add_media_button( $context ) {
+			global $typenow;
+			// check user permissions
+			if ( ! current_user_can( 'politch_edit_person' ) ) {
+				return; // BREAKPOINT
+			}
+			
+			// verify the post type
+			if( ! in_array( $typenow, array( 'post', 'page' ) ) ) {
+				return; // BREAKPOINT
+			}
+			
+			// make sure the thickbox script is loaded 
+			add_thickbox();
+			
+			// add media button
+			echo '<a href="#TB_inline?&inlineId=politch-short-code-generator" class="thickbox button" ' .
+				'title="' . esc_attr__( "Insert people", "politch" ) . '">' .
+				'<span class="wp-media-buttons-icon dashicons dashicons-groups"></span> ' .
+				__( "Add people", "politch" ) . '</a>';
+		}
+		
+		/**
+		 * print out shortcode generator html
+		 */
+		public function add_short_code_generator_html() {
+			global $typenow;
+			// check user permissions
+			if ( ! current_user_can( 'politch_edit_person' ) ) {
+				return; // BREAKPOINT
+			}
+			
+			// verify the post type
+			if( ! in_array( $typenow, array( 'post', 'page' ) ) ) {
+				return; // BREAKPOINT
+			}
+			
+			// get people
+			$args = array(
+				'nopaging'     => true,
+				'post_type'    => 'politch',
+				'orderby'      => 'title',
+				'order'        => 'ASC',
+			);
+			$people = get_posts( $args );
+			
+			// get groups
+			$groups = get_terms( 'politch_groups' );
+			
+			// include thickbox content
+			include POLITCH_PLUGIN_PATH . '/admin/short-code-generator.php';
+		}
+		
 	} // END class Politch_Main
 } // END if ( ! class_exists( 'Politch_Main' ) )
 
 if ( class_exists( 'Politch_Main' ) ) {
 	
 	if ( ! is_admin() ) {
-		require_once( POLITCH_PLUGIN_PATH . '/frontend/class-politch-frontend.php' );
+		require_once( POLITCH_PLUGIN_PATH . '/includes/class-politch-frontend.php' );
 	}
 	
 	$politch_main = new Politch_Main();

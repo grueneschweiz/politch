@@ -27,6 +27,14 @@ if( ! class_exists( 'Politch_Settings' ) ) {
 			$this->scripts[] = array(
 				'handle'     => 'politch-admin-js', // string
 				'src'        => '/js/politch-admin-js.js', // string relative to plugin folder
+				'deps'       => array( 'jquery', 'thickbox' ), // array
+				'in_footer'  => true, // bool
+				'scope'      => 'admin', // admin | frontend | shared
+			);
+			
+			$this->scripts[] = array(
+				'handle'     => 'chosen', // string
+				'src'        => '/vendor/chosen_v1.4.2/chosen.jquery.min.js', // string relative to plugin folder
 				'deps'       => array( 'jquery' ), // array
 				'in_footer'  => true, // bool
 				'scope'      => 'admin', // admin | frontend | shared
@@ -43,7 +51,15 @@ if( ! class_exists( 'Politch_Settings' ) ) {
 			$this->styles[] = array(
 				'handle'    => 'politch-admin-css', // string
 				'src'       => '/css/politch-admin-css.css', // string relative to plugin folder
-				'deps'      => array(), // array
+				'deps'      => array( 'dashicons' ), // array
+				'media'     => 'all', // css media tag
+				'scope'     => 'admin', // admin | frontend | shared
+			);
+			
+			$this->styles[] = array(
+				'handle'    => 'chosen', // string
+				'src'       => '/vendor/chosen_v1.4.2/chosen.min.css', // string relative to plugin folder
+				'deps'      => array(  ), // array
 				'media'     => 'all', // css media tag
 				'scope'     => 'admin', // admin | frontend | shared
 			);

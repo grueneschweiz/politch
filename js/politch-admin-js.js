@@ -1,60 +1,149 @@
-var $jwptm = jQuery.noConflict();
-$jwptm(function(){
-
-	var selector = $jwptm('#shortcode_output_box'),
-		catslug = $jwptm( "#tm_cat" ).val(),
-		orderby = $jwptm( "#tm_orderby" ).val(),
-		tm_limit = $jwptm( "#tm_limit" ).val(),
-		tm_show_id = $jwptm( "#tm_show_id" ).val(),
-		tm_remove_id = $jwptm( "#tm_remove_id" ).val(),
-		tm_layout = $jwptm( "#tm_layout" ).val(),
-		tm_image_layout = $jwptm( "#tm_image_layout" ).val();
-		tm_image_size = $jwptm( "#tm_image_size" ).val();
-
+/**
+ * jQuery wrapper
+ */
+( function( $ ) {
+	var ShortCodeGen = new ShortCodeGen();
+	
+	/**
+	 * handles all the functionality of the short code generator
+	 */
+	function ShortCodeGen() {
 		
-	$jwptm( '#tm_cat' ).on( "keyup keydown change", function() {
+		var self = this;
+		
+		/**
+		 * initiatelize
+		 * 
+		 * add chosen functionality
+		 * add change events
+		 * add submit event
+		 */
+		this.init = function init() {
+			// add chosen functionality
+			$( '.chosen-select' ).chosen( {
+				disable_search_threshold: 7, 
+				no_results_text: "Oops, nothing found!",
+				width: '300px'
+			} );
+			
+			// add change events
+			$( 'select[name="politch-select-type"]' ).change( function() {
+				// hide all selects execpt the type selector
+				$( '.politch-shortcode-select' ).addClass( 'politch-shortcode-select-hidden' );
+				// show the corresponding one to the type selection
+				$( '#politch-select-' + $( this ).val() ).removeClass( 'politch-shortcode-select-hidden' );
+			});
+			
+			$( '#politch-submit-shortcode' ).click( function( event ) {
+				// dont submit
+				event.preventDefault();
+				
+				// check if input is valid
+				if ( false === self.isInputValid() ) {
+					return; // BREAKPOINT
+				}
+				
+				// create shortcode
+				var shortcode = self.generateShortcode();
+				
+				// insert shortcode
+				window.send_to_editor( shortcode );
+				
+				// close thickbox
+				tb_remove();
+			});
+		};
+		
+		/**
+		 * validate input
+		 * 
+		 * returns true if valid. else false and shows an error message.
+		 * 
+		 * @return    bool    true if valid, else false
+		 */
+		this.isInputValid = function isInputValid() {
+			
+			$( '#politch-short-code-message' ).hide();
+			
+			switch( $( 'select[name="politch-select-type"]' ).val() ) {
+				case 'person':
+					if ( -1 !== $( 'select[name="politch-select-person"]' ).val() ) {
+						return true;
+					} else {
+						$( '#politch-short-code-message' ).text( 'Please select a person.' ).show();
+						return false;
+					}
+					break;
+				
+				case 'group':
+					if ( -1 !== $( 'select[name="politch-select-group"]' ).val() ) {
+						return true;
+					} else {
+						$( '#politch-short-code-message' ).text( 'Please select a group.' ).show();
+						return false;
+					}
+					break;
+				
+				case 'groups':
+					if ( null !== $( 'select[name="politch-select-groups"]' ).val() ) {
+						return true;
+					} else {
+						$( '#politch-short-code-message' ).text( 'Please select one or multiple groups.' ).show();
+						return false;
+					}
+					break;
+				
+				default:
+					return false;
+			}
+		};
+		
+		
+		/**
+		 * generate shortcode
+		 * 
+		 * @return    string    the shortcode
+		 */
+		this.generateShortcode = function generateShortcode() {
+			var show_election_info = '';
+			
+			if ( 0 < $( 'input[name="politch-show_election_info"]:checked' ).length ) {
+				show_election_info = ' show_election_info="1"';
+			}
+			
+			switch( $( 'select[name="politch-select-type"]' ).val() ) {
+				case 'person':
+					return '[politch type="person" id="' + $( 'select[name="politch-select-person"]' ).val() + '"' + show_election_info +']';
+					break;
+				
+				case 'group':
+					return '[politch type="group" group_slug="' + $( 'select[name="politch-select-group"]' ).val() + '"' + show_election_info +']';
+					break;
+				
+				case 'groups':
+					return '[politch type="groups" group_slugs="' + $( 'select[name="politch-select-groups"]' ).val() + '"' + show_election_info +']';
+					break;
+				
+				default:
+					return false;
+			}
+		};
+		
+	}
 
-		catslug = $jwptm(this).val();
-
+	/**
+	 * fires after DOM is loaded
+	 */
+	$( document ).ready(function() {
+		ShortCodeGen.init();
+		
 	});
-	$jwptm( '#tm_orderby' ).on( "keyup keydown change", function() {
-
-		orderby = $jwptm(this).val();
+	
+	/**
+	 * fires on resizeing of the window
+	 */
+	jQuery( window ).resize( function() {
+		
 	});
-	$jwptm( '#tm_limit' ).on( "keyup keydown change", function() {
-
-		tm_limit = $jwptm(this).val();
-	});	
-	$jwptm( '#tm_show_id' ).on( "keyup keydown change", function() {
-
-		tm_show_id = $jwptm(this).val();
-	});		
-	$jwptm( '#tm_remove_id' ).on( "keyup keydown change", function() {
-
-		tm_remove_id = $jwptm(this).val();
-	});		
-	$jwptm( '#tm_layout' ).on( "keyup keydown change", function() {
-
-		tm_layout = $jwptm(this).val();
-	});	
-	$jwptm( '#tm_image_layout' ).on( "keyup keydown change", function() {
-
-		tm_image_layout = $jwptm(this).val();
-	});		
-
-	$jwptm( '#tm_image_size' ).on( "keyup keydown change", function() {
-
-		tm_image_size = $jwptm(this).val();
- 	});	
- 	
-	$jwptm('#tm_short_code :input').on( "keyup keydown change", function() {
-
-		var shortcodegenerated = 
-		"[team_manager category='"+catslug+"' orderby='"+orderby+"' limit='"+tm_limit+"' post__in='"+tm_show_id+"' exclude='"+tm_remove_id+"' layout='"+tm_layout+"' image_layout='"+tm_image_layout+"' image_size='"+tm_image_size+"']";
-
-		selector.empty().append(shortcodegenerated);
-
-	});
-
-
-});
+	
+} )( jQuery );
