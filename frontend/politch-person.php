@@ -84,37 +84,37 @@ foreach( $person['groups_slugs'] as $slug ) {
 			
 			<div class="politch-social-buttons">
 				<?php if ( ! empty( $person[$prefix.'website'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'website'][0]; ?>" title="<?php _e( 'Website', 'politch' ); ?>" class="politch-person-website politch-icon politch-icon-website">
+				<a target="_blank" href="<?php echo $person[$prefix.'website'][0]; ?>" title="<?php _e( 'Website', 'politch' ); ?>" class="politch-person-website politch-icon politch-icon-website">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'Website', 'politch' ); ?>: <?php echo $person[$prefix.'website'][0]; ?></span>
 				</a>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $person[$prefix.'facebook'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'facebook'][0]; ?>" title="<?php _e( 'Facebook', 'politch' ); ?>" class="politch-person-facebook politch-icon politch-icon-facebook">
+				<a target="_blank" href="<?php echo $person[$prefix.'facebook'][0]; ?>" title="<?php _e( 'Facebook', 'politch' ); ?>" class="politch-person-facebook politch-icon politch-icon-facebook">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'Facebook', 'politch' ); ?>: <?php echo $person[$prefix.'facebook'][0]; ?></span>
 				</a>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $person[$prefix.'twitter'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'twitter'][0]; ?>" title="<?php _e( 'Twitter', 'politch' ); ?>" class="politch-person-twitter politch-icon politch-icon-twitter">
+				<a target="_blank" href="<?php echo $person[$prefix.'twitter'][0]; ?>" title="<?php _e( 'Twitter', 'politch' ); ?>" class="politch-person-twitter politch-icon politch-icon-twitter">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'Twitter', 'politch' ); ?>: <?php echo $person[$prefix.'twitter'][0]; ?></span>
 				</a>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $person[$prefix.'linkedin'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'linkedin'][0]; ?>" title="<?php _e( 'LinkedIn', 'politch' ); ?>" class="politch-person-linkedin politch-icon politch-icon-linkedin">
+				<a target="_blank" href="<?php echo $person[$prefix.'linkedin'][0]; ?>" title="<?php _e( 'LinkedIn', 'politch' ); ?>" class="politch-person-linkedin politch-icon politch-icon-linkedin">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'LinkedIn', 'politch' ); ?>: <?php echo $person[$prefix.'linkedin'][0]; ?></span>
 				</a>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $person[$prefix.'google_plus'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'google_plus'][0]; ?>" title="<?php _e( 'Google Plus', 'politch' ); ?>" class="politch-person-google_plus politch-icon politch-icon-google_plus">
+				<a target="_blank" href="<?php echo $person[$prefix.'google_plus'][0]; ?>" title="<?php _e( 'Google Plus', 'politch' ); ?>" class="politch-person-google_plus politch-icon politch-icon-google_plus">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'Google Plus', 'politch' ); ?>: <?php echo $person[$prefix.'google_plus'][0]; ?></span>
 				</a>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $person[$prefix.'youtube'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'youtube'][0]; ?>" title="<?php _e( 'Youtube', 'politch' ); ?>" class="politch-person-youtube politch-icon politch-icon-youtube">
+				<a target="_blank" href="<?php echo $person[$prefix.'youtube'][0]; ?>" title="<?php _e( 'Youtube', 'politch' ); ?>" class="politch-person-youtube politch-icon politch-icon-youtube">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'Youtube', 'politch' ); ?>: <?php echo $person[$prefix.'youtube'][0]; ?></span>
 				</a>
 				<?php endif; ?>
@@ -126,7 +126,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $person[$prefix.'smartvote'][0] ) ) : ?>
-				<a href="<?php echo $person[$prefix.'smartvote'][0]; ?>" title="<?php _e( 'Smartvote', 'politch' ); ?>" class="politch-person-smartvote politch-icon politch-icon-smartvote">
+				<a target="_blank" href="<?php echo $person[$prefix.'smartvote'][0]; ?>" title="<?php _e( 'Smartvote', 'politch' ); ?>" class="politch-person-smartvote politch-icon politch-icon-smartvote">
 					<span class="politch-field-label screen-reader-text"><?php _e( 'Smartvote', 'politch' ); ?>: <?php echo $person[$prefix.'smartvote'][0]; ?></span>
 				</a>
 				<?php endif; ?>
