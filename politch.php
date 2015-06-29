@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Politch
  * Plugin URI: https://github.com/cyrillbolliger/politch
- * Version: 1.0.2
+ * Version: 1.0.3
  * Description: Plugin to display politicians profiles. Especially designed for swiss needs.
  * Author: Cyrill Bolliger
  * Text Domain: politch
@@ -43,7 +43,7 @@ define( 'POLITCH_PLUGIN_PATH', dirname( __FILE__ ) );
 /**
  * version number (dont forget to change it also in the header)
  */
-define( 'POLITCH_VERSION', '1.0.2' );
+define( 'POLITCH_VERSION', '1.0.3' );
 
 /**
  * plugin prefix
@@ -239,10 +239,9 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 */
 		private function add_capabilities_for_single_blog() {
 			$capabilities = array(
-				'cybo_frontend',
-				'cybo_admin',
+				'politch_edit_person',
 			); 
-			$this->add_plugin_capabilities_for( 'cybo_user', $capabilities[0] );
+			$this->add_plugin_capabilities_for( 'editor', $capabilities[0] );
 			$this->add_plugin_capabilities_for( 'administrator' , $capabilities );
 		}
 		
@@ -272,10 +271,9 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 */
 		private function remove_capabilities_for_single_blog() {
 			$capabilities = array(
-				'cybo_frontend',
-				'cybo_admin',
+				'politch_edit_person',
 			); 
-			$this->remove_plugin_capabilities_for( 'cybo_user', $capabilities[0] );
+			$this->remove_plugin_capabilities_for( 'editor', $capabilities[0] );
 			$this->remove_plugin_capabilities_for( 'administrator' , $capabilities );
 			
 		}
