@@ -2,10 +2,10 @@
 
 /**
  * Plugin Name: Politch
+ * Plugin URI: https://github.com/cyrillbolliger/politch
+ * Version: 1.0.2
  * Description: Plugin to display politicians profiles. Especially designed for swiss needs.
- * Version: 1.0.1
  * Author: Cyrill Bolliger
- * Author URI: http://www.cyrillbolliger.ch
  * Text Domain: politch
  * Domain Path: languages
  * License: GPL 2.
@@ -42,7 +42,7 @@ define( 'POLITCH_PLUGIN_PATH', dirname( __FILE__ ) );
 /**
  * version number (dont forget to change it also in the header)
  */
-define( 'POLITCH_VERSION', '1.0.1' );
+define( 'POLITCH_VERSION', '1.0.2' );
 
 /**
  * plugin prefix
