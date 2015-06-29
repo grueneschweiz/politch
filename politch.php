@@ -8,6 +8,7 @@
  * Author: Cyrill Bolliger
  * Text Domain: politch
  * Domain Path: languages
+ * GitHub Plugin URI: cyrillbolliger/politch
  * License: GPL 2.
  */
  
