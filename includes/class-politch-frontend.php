@@ -35,8 +35,8 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 					break;
 				
 				case 'group':
-					$query_args = $this->get_group_query( $atts, $atts['show_election_info'] );
-					$output = $this->get_content_html( $query_args );
+					$query_args = $this->get_group_query( $atts );
+					$output = $this->get_content_html( $query_args, $atts['show_election_info'] );
 					break;
 				
 				case 'groups':
@@ -56,8 +56,8 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 						
 						foreach( $slugs as $slug ) {
 							$atts['group_slug'] = $slug;
-							$query_args = $this->get_group_query( $atts, $atts['show_election_info'] );
-							$buffer = $this->get_content_html( $query_args );
+							$query_args = $this->get_group_query( $atts );
+							$buffer = $this->get_content_html( $query_args, $atts['show_election_info'] );
 							if ( -1 == $buffer ) {
 								$output = -1;
 								break;

@@ -217,21 +217,64 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * Add capabilities on plugin activation
 		 */
 		public function add_capabilities_on_plugin_activation() {
+			if ( is_multisite() ) {
+				global $wpdb;
+				$blogs_list = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A);
+				if ( ! empty( $blogs_list ) ) {
+					foreach ($blogs_list as $blog) {
+						switch_to_blog($blog['blog_id']);
+						$this->add_capabilities_for_single_blog();
+						restore_current_blog();
+					}
+				}
+			} else {
+				$this->add_capabilities_for_single_blog();
+			}
+		}
+		
+		
+		/**
+		 * Actually add capabilities
+		 */
+		private function add_capabilities_for_single_blog() {
 			$capabilities = array(
-				'politch_edit_person',
+				'cybo_frontend',
+				'cybo_admin',
 			); 
-			$this->add_plugin_capabilities_for( 'editor', $capabilities );
+			$this->add_plugin_capabilities_for( 'cybo_user', $capabilities[0] );
 			$this->add_plugin_capabilities_for( 'administrator' , $capabilities );
 		}
+		
 		
 		/**
 		 * Remove capabilities on plugin deactivation
 		 */
 		public function remove_capabilities_on_plugin_deactivation() {
+			if ( is_multisite() ) {
+				global $wpdb;
+				$blogs_list = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A);
+				if ( ! empty( $blogs_list ) ) {
+					foreach ($blogs_list as $blog) {
+						switch_to_blog($blog['blog_id']);
+						$this->remove_capabilities_for_single_blog();
+						restore_current_blog();
+					}
+				}
+			} else {
+				$this->remove_capabilities_for_single_blog();
+			}
+		}
+		
+		
+		/**
+		 * Actually remove capabilities
+		 */
+		private function remove_capabilities_for_single_blog() {
 			$capabilities = array(
-				'politch_edit_person',
+				'cybo_frontend',
+				'cybo_admin',
 			); 
-			$this->remove_plugin_capabilities_for( 'editor', $capabilities );
+			$this->remove_plugin_capabilities_for( 'cybo_user', $capabilities[0] );
 			$this->remove_plugin_capabilities_for( 'administrator' , $capabilities );
 			
 		}
