@@ -94,7 +94,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 		 * 
 		 * @uses    the Meta Box plugin. see http://metabox.io/
 		 */
-		public function add_meta_boxes() {
+		public function add_meta_boxes( $meta_boxes ) {
 			$prefix = POLITCH_PLUGIN_PREFIX;
 			
 			$meta_boxes = array();
