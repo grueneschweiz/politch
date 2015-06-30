@@ -97,8 +97,6 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 		public function add_meta_boxes( $meta_boxes ) {
 			$prefix = POLITCH_PLUGIN_PREFIX;
 			
-			$meta_boxes = array();
-			
 			$meta_boxes[] = array(
 				'id'         => $prefix . 'personal_information',
 				'title'      => __( 'Personal information', 'politch' ),
