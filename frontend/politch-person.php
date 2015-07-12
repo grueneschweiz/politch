@@ -10,7 +10,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 ?>
 <div id="politch-person-<?php echo $person['id']; ?>" class="politch-person-preview politch-person <?php echo implode( ' ', $slugs ); ?>">
 	<header class="entry-header politch-entry-header">
-		<span class="toggle-button" data-politch-id="<?php echo $person['id']; ?>">
+		<span class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
 			<div class="attachment-post-thumbnail attachment-default-post-thumbnail-wrapper">
 				<?php echo $person['portrait']; ?>
 			</div>
@@ -18,7 +18,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 		
 		<div class="politch-preson-preview-info">
 			<h1 class="entry-title politch-entry-title">
-				<span class="toggle-button" href="#" data-politch-id="<?php echo $person['id']; ?>">
+				<span class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
 					<?php echo $person['name']; ?>
 				</span>
 			</h1>
@@ -57,6 +57,11 @@ foreach( $person['groups_slugs'] as $slug ) {
 					</div>
 				<?php endif; ?>
 			<?php endif; ?>
+			<div class="politch-read-more">
+				<a class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
+					<?php _e( '&rarr; Read more', 'politch' ) ?>
+				</a>
+			</div>
 		</div>
 		<div class="clear"></div>
 	</header>

@@ -19,10 +19,12 @@
 			$( 'div.politch-preson-preview-info div.politch-person-cv' ).hide();
 			
 			$( "div[id^='politch-person-']" ).each( function( index, element ) {
-				$( element ).find( 'span.toggle-button' ).click( function() {
+				$( element ).find( '.politch-toggle-button' ).click( function( event ) {
+					event.preventDefault();
 					$( element ).find( 'div.politch-person-fullpost' ).slideToggle();
 					$( element ).find( 'div.politch-preson-preview-info div.politch-person-mail' ).slideToggle();
 					$( element ).find( 'div.politch-preson-preview-info div.politch-person-cv' ).slideToggle();
+					$( element ).find( 'div.politch-read-more' ).slideToggle();
 				} );
 			} );
 		};
