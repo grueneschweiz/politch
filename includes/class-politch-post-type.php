@@ -107,7 +107,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'fields'     => array(
 					array(
 						'name' => __('Year of birth','politch' ),
-						'desc' => __('Year of birth. Ex: 1970','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Year of birth. Ex: 1970','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'year_of_birth',
 						'type' => 'number',
 						'min'  => 1900,
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => _x('City', 'Place of residence' ,'politch' ),
-						'desc' => _x('Hometown', 'Place of residence','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => _x('Hometown', 'Place of residence','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'city',
 						'type' => 'text',
 						'std'  => ''
@@ -131,7 +131,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => __('Brief CV','politch' ),
-						'desc' => __('Very short curivulum vitae (2-3 lines).','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Very short curivulum vitae (2-3 lines).','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'brief_cv',
 						'type' => 'textarea',
 						'std'  => '',
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => __('Mandates','politch' ),
-						'desc' => __('List of organizations where this person has mandates. Use one line per organization.','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('List of organizations where this person has mandates. Use one line per organization.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'mandates',
 						'type' => 'textarea',
 						'std'  => '',
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => __('Memberships','politch' ),
-						'desc' => __('List of organizations where this person is a member of. Use one line per organization.','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('List of organizations where this person is a member of. Use one line per organization.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'memberships',
 						'type' => 'textarea',
 						'std'  => '',
@@ -166,42 +166,42 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'fields'     => array(
 					array(
 						'name' => __('Ticket name','politch' ),
-						'desc' => __('Name of the electoral list.','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Name of the electoral list.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'ticket_name',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Ticket number','politch' ),
-						'desc' => __('Number of the electoral list.','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Number of the electoral list.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'ticket_number',
 						'type' => 'number',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Candidate number','politch' ),
-						'desc' => __('Number of the candidate on the ticket','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Number of the candidate on the ticket','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'candidate_number',
 						'type' => 'number',
 						'std'  => ''
 					),
 					array(
 						'name' => __('District','politch' ),
-						'desc' => __('Electoral district','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Electoral district','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'district',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
-						'name' => __('Smartvote Link','politch' ) . ' ' . __( '(Election only)', 'politch' ),
-						'desc' => __('Link to the smartvote profile','politch' ),
+						'name' => __('Smartvote Link','politch' ),
+						'desc' => __('Link to the smartvote profile','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'smartvote',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Smartspider','politch' ),
-						'desc' => __('Please upload smartspider','politch' ) . ' ' . __( '(Election only)', 'politch' ),
+						'desc' => __('Please upload smartspider','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'smartspider',
 						'type' => 'image_advanced',
 						'std'  => ''
