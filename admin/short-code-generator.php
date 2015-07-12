@@ -7,8 +7,8 @@
 			<p id="politch-select-type">
 				<select name="politch-select-type" class="chosen-select" data-placeholder="<?php esc_attr_e( 'Chose type', 'politch' ); ?>">
 					<option value="person"><?php _e( 'Single person', 'politch' ); ?></option>
-					<option value="group"><?php _e( 'Single Group', 'politch' ); ?></option>
-					<option value="groups"><?php _e( 'Multiple Groups', 'politch' ); ?></option>
+					<?php /*<option value="group"><?php _e( 'Single Group', 'politch' ); ?></option>
+					<option value="groups"><?php _e( 'Multiple Groups', 'politch' ); ?></option> */ ?>
 				</select>
 			</p>
 			
