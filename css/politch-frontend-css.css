@@ -11,7 +11,7 @@ div.politch-person header.politch-entry-header h1
 	{ cursor: pointer; }
 	
 div.politch-person header.politch-entry-header div.politch-preson-preview-info
-	{ float: left; }
+	{ float: left; width: calc( 100% - 160px ); }
 
 div.politch-person header.politch-entry-header div.politch-preson-preview-info h2
 	{ margin-top: -0.5em; }
