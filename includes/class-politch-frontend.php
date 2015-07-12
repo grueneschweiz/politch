@@ -204,7 +204,7 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 				$width      = get_option( 'thumbnail_size_w' );
 				$height     = get_option( 'thumbnail_size_h' );
 				$avatar_url = plugin_dir_url( POLITCH_PLUGIN_PATH . '/politch.php' ) . 'img/blank-avatar.png';
-				return '<img class="attachment-post-thumbnail politch-blank-avatar wp-post-image" width="'.$width.'" height="'.$height.'" alt="'.__( 'Blank avatar', 'politch' ).'" src="'.$avatar_url.'">';
+				return '<img class="attachment-thumbnail politch-blank-avatar wp-post-image" width="'.$width.'" height="'.$height.'" alt="'.__( 'Blank avatar', 'politch' ).'" src="'.$avatar_url.'">';
 			}
 		}
 	}

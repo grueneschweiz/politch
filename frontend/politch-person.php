@@ -141,7 +141,17 @@ foreach( $person['groups_slugs'] as $slug ) {
 		</div>
 		
 		<?php if( $show_election_info ) : ?>
-			<h2><?php _e( 'Election info', 'politch' ); ?></h2> 
+			<?php if ( ! ( 
+				empty( $person[$prefix.'ticket_name'][0] ) && 
+				empty( $person[$prefix.'ticket_number'][0] ) &&
+				empty( $person[$prefix.'candidate_number'][0] ) &&
+				empty( $person[$prefix.'district'][0] ) &&
+				empty( $person[$prefix.'smartspider'][0] ) &&
+				empty( $person[$prefix.'mandates'][0] ) &&
+				empty( $person[$prefix.'memberships'][0] )
+			 ) ) : ?>
+				<h2><?php _e( 'Election info', 'politch' ); ?></h2>
+			<?php endif; ?> 
 			
 			<?php if ( ! empty( $person[$prefix.'ticket_name'][0] ) ) : ?>
 			<div class="politch-person-ticket_name">
