@@ -113,7 +113,11 @@
 			
 			switch( $( 'select[name="politch-select-type"]' ).val() ) {
 				case 'person':
-					return '[politch type="person" id="' + $( 'select[name="politch-select-person"]' ).val() + '"' + show_election_info +']';
+					var id = $( 'select[name="politch-select-person"]' ).val();
+					return '[politch type="person" ' +
+					       'id="' + id + '"' +
+					        show_election_info + 
+					        ' name="' + $( 'select[name="politch-select-person"]' ).find( 'option[value=' + id + ']'  ).text() + '"]';
 					break;
 				
 				case 'group':
