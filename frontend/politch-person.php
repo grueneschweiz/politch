@@ -57,11 +57,34 @@ foreach( $person['groups_slugs'] as $slug ) {
 					</div>
 				<?php endif; ?>
 			<?php endif; ?>
-			<div class="politch-read-more">
-				<a class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
-					<?php _e( '&rarr; Read more', 'politch' ) ?>
-				</a>
-			</div>
+			
+			<?php if ( ! ( 
+				empty( $person[$prefix.'email'][0] ) && 
+				empty( $person[$prefix.'phone'][0] ) && 
+				empty( $person[$prefix.'mobile'][0] ) && 
+				empty( $person[$prefix.'website'][0] ) && 
+				empty( $person[$prefix.'facebook'][0] ) && 
+				empty( $person[$prefix.'twitter'][0] ) && 
+				empty( $person[$prefix.'linkedin'][0] ) && 
+				empty( $person[$prefix.'google_plus'][0] ) && 
+				empty( $person[$prefix.'youtube'][0] ) && 
+				empty( $person[$prefix.'vimeo'][0] ) && 
+				empty( $person[$prefix.'smartvote'][0] ) && 
+				empty( $person[$prefix.'ticket_name'][0] ) && 
+				empty( $person[$prefix.'ticket_number'][0] ) &&
+				empty( $person[$prefix.'candidate_number'][0] ) &&
+				empty( $person[$prefix.'district'][0] ) &&
+				empty( $person[$prefix.'smartspider'][0] ) &&
+				empty( $person[$prefix.'mandates'][0] ) &&
+				empty( $person[$prefix.'memberships'][0] )
+			 ) ) : ?>
+				<div class="politch-read-more">
+					<a class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
+						<?php _e( '&rarr; Read more', 'politch' ) ?>
+					</a>
+				</div>
+			<?php endif; ?> 
+			
 		</div>
 		<div class="clear"></div>
 	</header>
