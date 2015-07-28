@@ -194,7 +194,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => __('Smartvote Link','politch' ),
-						'desc' => __('Link to the smartvote profile','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Link to the smartvote profile','politch' ),
 						'id'   => $prefix . 'smartvote',
 						'type' => 'url',
 						'std'  => ''
