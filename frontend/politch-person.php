@@ -59,6 +59,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 			<?php endif; ?>
 			
 			<?php if ( ! ( 
+				empty( $person[$prefix.'brief_cv'][0] ) &&
 				empty( $person[$prefix.'email'][0] ) && 
 				empty( $person[$prefix.'phone'][0] ) && 
 				empty( $person[$prefix.'mobile'][0] ) && 
