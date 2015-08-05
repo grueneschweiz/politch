@@ -175,14 +175,14 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 						'name' => __('Ticket number','politch' ),
 						'desc' => __('Number of the electoral list.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'ticket_number',
-						'type' => 'number',
+						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Candidate number','politch' ),
 						'desc' => __('Number of the candidate on the ticket','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
 						'id'   => $prefix . 'candidate_number',
-						'type' => 'number',
+						'type' => 'text',
 						'std'  => ''
 					),
 					array(
