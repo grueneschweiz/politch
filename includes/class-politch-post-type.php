@@ -16,6 +16,12 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 	 */
 	class Politch_Post_Type {
 		
+		
+		/**
+		 * holds the visibility options
+		 */
+		private $visibility_options;
+		
 		/**
 		 * registers the custom post type
 		 */
@@ -97,6 +103,8 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 		public function add_meta_boxes( $meta_boxes ) {
 			$prefix = POLITCH_PLUGIN_PREFIX;
 			
+			$only_election_notice = ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' );
+			
 			$meta_boxes[] = array(
 				'id'         => $prefix . 'personal_information',
 				'title'      => __( 'Personal information', 'politch' ),
@@ -107,7 +115,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'fields'     => array(
 					array(
 						'name' => __('Year of birth','politch' ),
-						'desc' => __('Year of birth. Ex: 1970','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Year of birth. Ex: 1970','politch' ) . $this->get_visibility_notice( 'year_of_birth' ),
 						'id'   => $prefix . 'year_of_birth',
 						'type' => 'number',
 						'min'  => 1900,
@@ -117,21 +125,21 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => _x('City', 'Place of residence' ,'politch' ),
-						'desc' => _x('Hometown', 'Place of residence','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => _x('Hometown', 'Place of residence','politch' ) . $this->get_visibility_notice( 'city' ),
 						'id'   => $prefix . 'city',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Role','politch' ),
-						'desc' => __('List of the current roles of this person. Use a comma to separate them.','politch' ),
+						'desc' => __('List of the current roles of this person. Use a comma to separate them.','politch' ) . $this->get_visibility_notice( 'roles' ),
 						'id'   => $prefix . 'roles',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Brief CV','politch' ),
-						'desc' => __('Very short curivulum vitae (2-3 lines).','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Very short curivulum vitae (2-3 lines).','politch' ) . $this->get_visibility_notice( 'brief_cv' ),
 						'id'   => $prefix . 'brief_cv',
 						'type' => 'textarea',
 						'std'  => '',
@@ -139,7 +147,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => __('Mandates','politch' ),
-						'desc' => __('List of organizations where this person has mandates. Use one line per organization.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('List of organizations where this person has mandates. Use one line per organization.','politch' ) . $this->get_visibility_notice( 'mandates' ),
 						'id'   => $prefix . 'mandates',
 						'type' => 'textarea',
 						'std'  => '',
@@ -147,7 +155,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 					),
 					array(
 						'name' => __('Memberships','politch' ),
-						'desc' => __('List of organizations where this person is a member of. Use one line per organization.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('List of organizations where this person is a member of. Use one line per organization.','politch' ) . $this->get_visibility_notice( 'memberships' ),
 						'id'   => $prefix . 'memberships',
 						'type' => 'textarea',
 						'std'  => '',
@@ -165,43 +173,51 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'autosave'   => true,
 				'fields'     => array(
 					array(
+						'name' => __('Slogan','politch' ),
+						'desc' => __('The slogan of the candidate','politch' ) . $this->get_visibility_notice( 'slogan' ),
+						'id'   => $prefix . 'slogan',
+						'type' => 'textarea',
+						'std'  => '',
+						'rows' => 5
+					),
+					array(
 						'name' => __('Ticket name','politch' ),
-						'desc' => __('Name of the electoral list.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Name of the electoral list.','politch' ) . $this->get_visibility_notice( 'ticket_name' ),
 						'id'   => $prefix . 'ticket_name',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Ticket number','politch' ),
-						'desc' => __('Number of the electoral list.','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Number of the electoral list.','politch' ) . $this->get_visibility_notice( 'ticket_number' ),
 						'id'   => $prefix . 'ticket_number',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Candidate number','politch' ),
-						'desc' => __('Number of the candidate on the ticket','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Number of the candidate on the ticket','politch' ) . $this->get_visibility_notice( 'candidate_number' ),
 						'id'   => $prefix . 'candidate_number',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('District','politch' ),
-						'desc' => __('Electoral district','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Electoral district','politch' ) . $this->get_visibility_notice( 'district' ),
 						'id'   => $prefix . 'district',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Smartvote Link','politch' ),
-						'desc' => __('Link to the smartvote profile','politch' ),
+						'desc' => __('Link to the smartvote profile','politch' ) . $this->get_visibility_notice( 'smartvote' ),
 						'id'   => $prefix . 'smartvote',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Smartspider','politch' ),
-						'desc' => __('Please upload smartspider','politch' ) . ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' ),
+						'desc' => __('Please upload smartspider','politch' ) . $this->get_visibility_notice( 'smartspider' ),
 						'id'   => $prefix . 'smartspider',
 						'type' => 'image_advanced',
 						'std'  => ''
@@ -219,75 +235,100 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'fields'     => array(
 					array(
 						'name' => __('Email','politch' ),
-						'desc' => __('Email address','politch' ),
+						'desc' => __('Email address','politch' ) . $this->get_visibility_notice( 'email' ),
 						'id'   => $prefix . 'email',
 						'type' => 'email',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Phone','politch' ),
-						'desc' => __('Phone number','politch' ),
+						'desc' => __('Phone number','politch' ) . $this->get_visibility_notice( 'phone' ),
 						'id'   => $prefix . 'phone',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Mobile','politch' ),
-						'desc' => __('Mobilephone number','politch' ),
+						'desc' => __('Mobilephone number','politch' ) . $this->get_visibility_notice( 'mobile' ),
 						'id'   => $prefix . 'mobile',
 						'type' => 'text',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Website','politch' ),
-						'desc' => __('Website URL','politch' ),
+						'desc' => __('Website URL','politch' ) . $this->get_visibility_notice( 'website' ),
 						'id'   => $prefix . 'website',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Facebook','politch' ),
-						'desc' => __('Facebook profile or page link.','politch' ),
+						'desc' => __('Facebook profile or page link.','politch' ) . $this->get_visibility_notice( 'facebopok' ),
 						'id'   => $prefix . 'facebook',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Twitter','politch' ),
-						'desc' => __('Twitter profile link.','politch' ),
+						'desc' => __('Twitter profile link.','politch' ) . $this->get_visibility_notice( 'twitter' ),
 						'id'   => $prefix . 'twitter',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('LinkedIn','politch' ),
-						'desc' => __('LinkedIn profile link.','politch' ),
+						'desc' => __('LinkedIn profile link.','politch' ) . $this->get_visibility_notice( 'linkedin' ),
 						'id'   => $prefix . 'linkedin',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Google Plus','politch' ),
-						'desc' => __('Google Plus profile link.','politch' ),
+						'desc' => __('Google Plus profile link.','politch' ) . $this->get_visibility_notice( 'google_plus' ),
 						'id'   => $prefix . 'google_plus',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Youtube','politch' ),
-						'desc' => __('Youtube profile link.','politch' ),
+						'desc' => __('Youtube profile link.','politch' ) . $this->get_visibility_notice( 'youtube' ),
 						'id'   => $prefix . 'youtube',
 						'type' => 'url',
 						'std'  => ''
 					),
 					array(
 						'name' => __('Vimeo','politch' ),
-						'desc' => __('Vimeo profile link.','politch' ),
+						'desc' => __('Vimeo profile link.','politch' ) . $this->get_visibility_notice( 'vimeo' ),
 						'id'   => $prefix . 'vimeo',
 						'type' => 'url',
 						'std'  => ''
 					),
 				),
+			);
+			
+			$meta_boxes[] = array(
+				'id'         => $prefix . 'additional_information',
+				'title'      => __( 'Additional information', 'politch' ),
+				'pages'      => array( 'politch' ),
+				'context'    => 'normal',
+				'priority'   => 'high',
+				'autosave'   => true,
+				'fields'     => array(
+					array(
+						'name' => __('Additional Information Title','politch' ),
+						'desc' => __('Title of the additional inforamtion. Leave blank for no title.','politch' ) . $this->get_visibility_notice( 'additional_information_title' ),
+						'id'   => $prefix . 'additional_information_title',
+						'type' => 'text',
+						'std'  => __( '', 'politch' ),
+					),
+					array(
+						'name' => __('Additional Information Body','politch' ),
+						'desc' => __('Add additional inforamtion here. Leave blank for no additional information.','politch' ) . $this->get_visibility_notice( 'additional_information_body' ),
+						'id'   => $prefix . 'additional_information_body',
+						'type' => 'wysiwyg',
+						'std'  => __( '', 'politch' ),
+					),
+				)
 			);
 			
 			return $meta_boxes;
@@ -337,6 +378,28 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 			if ( $post_thumbnail_id ) {
 				$post_thumbnail_img = wp_get_attachment_image_src( $post_thumbnail_id, 'thumbnail' );
 				return $post_thumbnail_img[0];
+			}
+		}
+		
+		/**
+		 * get visibility notice
+		 * 
+		 * if the field is only visible for election profiles return a string which says exactly this ;)
+		 * else NULL will be returned.
+		 * 
+		 * @param    string    $id    the option id (whitout prefix)
+		 * @return   string           the notice HTML or NULL
+		 */
+		private function get_visibility_notice( $id ) {
+			
+			if ( empty( $this->visibility_options ) ) {
+				$this->visibility_options = get_option( POLITCH_PLUGIN_PREFIX . 'field_visibility', array() );
+			}
+			
+			if ( isset( $this->visibility_options[ POLITCH_PLUGIN_PREFIX . $id ] ) ) {
+				return ' <span class="politch-mark">*</span>' . __( 'Election only', 'politch' );
+			} else {
+				return null;
 			}
 		}
 	}

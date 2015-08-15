@@ -24,6 +24,26 @@ if( ! class_exists( 'Politch_Settings' ) ) {
 		
 		public function __construct() {
 			
+			$this->network_options = array(); // put your default network options in here. 
+			                                  // Ex.: $this->network_options = array( array( 'option_name' => 'default value') )
+			$this->single_blog_options = array(
+				'politch_field_visibility' => array(
+					'politch_year_of_birth'    => 1,
+					'politch_city'             => 1,
+					'politch_mandates'         => 1,
+					'politch_memberships'      => 1,
+					'politch_slogan'           => 1,
+					'politch_ticket_name'      => 1,
+					'politch_ticket_number'    => 1,
+					'politch_candidate_number' => 1,
+					'politch_district'         => 1,
+					'politch_smartvote'        => 1,
+					'politch_smartspider'      => 1,
+					'politch_additional_information_title' => 1,
+					'politch_additional_information_body'  => 1,
+				),
+			); // put your default blog options in here.
+			
 			$this->scripts[] = array(
 				'handle'     => 'politch-admin-js', // string
 				'src'        => '/js/politch-admin-js.js', // string relative to plugin folder

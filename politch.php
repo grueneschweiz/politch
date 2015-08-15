@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Politch
  * Plugin URI: https://github.com/cyrillbolliger/politch
- * Version: 1.1.4
+ * Version: 1.2.0
  * Description: Plugin to display politicians profiles. Especially designed for swiss needs.
  * Author: Cyrill Bolliger
  * Text Domain: politch
@@ -43,7 +43,7 @@ define( 'POLITCH_PLUGIN_PATH', dirname( __FILE__ ) );
 /**
  * version number (dont forget to change it also in the header)
  */
-define( 'POLITCH_VERSION', '1.1.4' );
+define( 'POLITCH_VERSION', '1.2.0' );
 
 /**
  * plugin prefix
@@ -60,10 +60,13 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 	
 	class Politch_Main extends Politch_Settings {
 		
+		public $tmp = ''; // output buffer
+		
 		/*
 		 * Construct the plugin object
 		 */
 		public function __construct() {
+			
 			parent::__construct();
 			
 			register_activation_hook( __FILE__, array( &$this, 'activate' ) );
@@ -88,6 +91,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			$this->add_roles_on_plugin_activation();
 			$this->add_capabilities_on_plugin_activation();
 			$this->create_tables_on_plugin_activation();
+			$this->create_default_options_on_first_plugin_activation();
 		}
 		
 		/**
@@ -118,34 +122,103 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * Hook into WP's admin_init action hook
 		 */
 		public function admin_init() {
-			$this->init_settings();
+			$this->init_options();
 			$this->load_tgm_plugin_activation_class();
 		}
 		
 		/**
 		 * Initialize some custom settings
 		 */
-		public function init_settings() {
+		public function init_options() {
+			register_setting( 'politch_options', 'politch_field_visibility' ); 
+			
+			add_settings_section(
+				'politch_visibility_options', 
+				__( 'Visibility options', 'politch' ), 
+				array( &$this, 'visibility_options_callback' ), 
+				'politch_options'
+			);
+			
+			$fields = array(
+				'year_of_birth'    => __( 'Year of birth', 'politch' ),
+				'city'             => _x( 'City', 'Place of residence' ,'politch' ),
+				'roles'            => __( 'Role','politch' ),
+				'brief_cv'         => __( 'Brief CV', 'politch' ),
+				'mandates'         => __( 'Mandates', 'politch' ),
+				'memberships'      => __( 'Memberships', 'politch' ),
+				'slogan'           => __( 'Slogan', 'politch' ),
+				'ticket_name'      => __( 'Ticket name', 'politch' ),
+				'ticket_number'    => __( 'Ticket number', 'politch' ),
+				'candidate_number' => __( 'Candidate number', 'politch' ),
+				'district'         => __( 'District', 'politch' ),
+				'smartvote'        => __( 'Smartvote', 'politch' ),
+				'smartspider'      => __( 'Smartspider', 'politch' ),
+				'email'            => __( 'Mail', 'politch' ),
+				'phone'            => __( 'Phone', 'politch' ),
+				'mobile'           => __( 'Mobile', 'politch' ),
+				'website'          => __( 'Website', 'politch' ),
+				'facebook'         => __( 'Facebook', 'politch' ),
+				'twitter'          => __( 'Twitter', 'politch' ),
+				'linkedin'         => __( 'LinkedIn', 'politch' ),
+				'google_plus'      => __( 'Google+', 'politch' ),
+				'youtube'          => __( 'Youtube', 'politch' ),
+				'vimeo'            => __( 'Vimeo', 'politch' ),
+				'additional_information_title' => __( 'Additional Information Title', 'politch' ),
+				'additional_information_body'  => __( 'Additional Information Body' ),
+			);
+			
+			foreach( $fields as $key => $caption ) {
+				add_settings_field( 
+					'politch_' . $key, 
+					$caption, 
+					array( &$this, 'render_options_checkbox' ),
+					'politch_options', 
+					'politch_visibility_options',
+					array( 'id' => 'politch_' . $key )
+				);
+			}
+		}
+		
+		/**
+		 * The description of the visibility section of the options page
+		 */
+		public function visibility_options_callback () {
+			echo __( 'Tick the checkbox, if the field should only be visible for election profiles.', 'politch' );
+		}
+		
+		/**
+		 * Render the html for options checkboxes
+		 */
+		public function render_options_checkbox( $args ) {
+			$options = get_option( 'politch_field_visibility' );
+			
+			if ( isset( $options[ $args['id'] ] ) ) {
+				$checked = checked( $options[ $args['id'] ], 1, false );
+			} else {
+				$checked = '';
+			}
+			echo "<input type='checkbox' name='politch_field_visibility[{$args['id']}]' $checked value='1'>";
 			
 		}
+		
 		
 		/**
 		 * Add a menu
 		 */
 		public function add_menu() {
-			
+			add_options_page( __( 'People Options', 'politch' ), __( 'People Options', 'politch' ), 'manage_options', 'politch_options', array( &$this, 'plugin_options_page' ) );
 		}
 
 		/**
 		 * Menu Callback
 		 */
-		public function plugin_settings_page() {
+		public function plugin_options_page() {
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_die( __( 'You do not have sufficient permissions to access this page.', 'politch' ) );
 			}
 			
 			// Render the settings template
-			//include( sprintf ( "%s/templates/settings.php", dirname( __FILE__ ) ) );
+			include POLITCH_PLUGIN_PATH . '/admin/options.php';
 		}
 		
 		/**
@@ -310,6 +383,49 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		public function create_tables_on_plugin_activation() {
 			// dont forget to check if tables dont exist yet
 			// dont forget to use $this->network_tables and $this->single_blog_tables (with $wpdb->prefix) as table names
+		}
+		
+		/**
+		 * Create options on plugin activation it they dont exist yet. Nothing will be overwritten.
+		 */
+		public function create_default_options_on_first_plugin_activation() {
+			// single blog options
+			if ( is_multisite() ) {
+				global $wpdb;
+				$blogs_list = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A);
+				if ( ! empty( $blogs_list ) ) {
+					foreach ($blogs_list as $blog) {
+						switch_to_blog($blog['blog_id']);
+						$this->add_options_for_sigle_blog();
+						restore_current_blog();
+					}
+				}
+			} else {
+				$this->add_options_for_sigle_blog();
+			}
+			
+			// options for all blogs (network options)
+			$this->add_site_options();
+		}
+		
+		/**
+		 * Actually adds the options. If the option already exists it will simply be skiped.
+		 * So nothing will be overwritten. This function will only add single blog options.
+		 */
+		private function add_options_for_sigle_blog() {
+			foreach( $this->single_blog_options as $option_name => $option_data ) {
+				add_option( $option_name, $option_data );
+			}
+		}
+		
+		/**
+		 * Actually adds the options. If the option already exists it will simply be skiped.
+		 * So nothing will be overwritten. This function will only add network options.
+		 */
+		private function add_site_options() {
+			foreach( $this->network_options as $option_name => $option_data ) {
+				add_site_option( $option_name, $option_data );
+			}
 		}
 		
 		/**

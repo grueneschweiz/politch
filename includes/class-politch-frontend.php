@@ -9,6 +9,16 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 	class Politch_Frontend {
 		
 		/**
+		 * holds the visibility options (array)
+		 */
+		private $visibility_options;
+		
+		/**
+		 * says if its an election profile or not (bool)
+		 */
+		private $is_election_profile;
+		
+		/**
 		 * Process short code
 		 * 
 		 * @var     array    $atts    provided from WP's add_shortcode() function
@@ -140,10 +150,14 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 				return -1; // BREAKPOINT
 			}
 			
-			$show_election_info = 'true' == (string) $show_election_info || '1' == (string) $show_election_info ? true : false;
-			
 			$prefix = POLITCH_PLUGIN_PREFIX;
 			$output = '';
+			
+			$show_election_info = 'true' == (string) $show_election_info || '1' == (string) $show_election_info ? true : false;
+			$this->is_election_profile = $show_election_info;
+			
+			// get options
+			$visibility_options = get_option( POLITCH_PLUGIN_PREFIX . 'field_visibility', array() );
 			
 			// the query
 			$query = new WP_Query( $query_args );
@@ -206,6 +220,27 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 				$avatar_url = plugin_dir_url( POLITCH_PLUGIN_PATH . '/politch.php' ) . 'img/blank-avatar.png';
 				return '<img class="attachment-thumbnail politch-blank-avatar wp-post-image" width="'.$width.'" height="'.$height.'" alt="'.__( 'Blank avatar', 'politch' ).'" src="'.$avatar_url.'">';
 			}
+		}
+		
+		/**
+		 * controls if an elements should be displayed or not
+		 * 
+		 * @param    string    $id    the option id (whitout prefix)
+		 * @return   bool             true is it should be visible else false
+		 */
+		private function is_visible( $id ) {
+			// show all information on election profiles
+			if ( $this->is_election_profile ) {
+				return true; // BREAKPOINT
+			}
+			
+			// get visibility options
+			if ( empty( $this->visibility_options ) ) {
+				$this->visibility_options = get_option( POLITCH_PLUGIN_PREFIX . 'field_visibility', array() );
+			}
+			
+			// return true, if the show on election profiles only flag is not set 
+			return ( ! isset( $this->visibility_options[ POLITCH_PLUGIN_PREFIX . $id ] ) );
 		}
 	}
 }
