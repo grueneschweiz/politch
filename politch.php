@@ -77,6 +77,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			add_action( 'admin_init', array( &$this, 'admin_init' ) );
 			add_action( 'admin_menu', array( &$this, 'add_menu' ) );
 			add_action( 'plugins_loaded', array( &$this, 'i18n' ) );
+			add_action( 'plugins_loaded', array( &$this, 'upgrade' ) );
 			add_action( 'wp_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'load_resources' ) );
 			add_action( 'tgmpa_register', array( &$this, 'register_required_plugins' ) );
@@ -88,6 +89,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * Activate the plugin
 		 */
 		public function activate() {
+			$this->set_version_number();
 			$this->add_roles_on_plugin_activation();
 			$this->add_capabilities_on_plugin_activation();
 			$this->create_tables_on_plugin_activation();
@@ -124,6 +126,41 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		public function admin_init() {
 			$this->init_options();
 			$this->load_tgm_plugin_activation_class();
+		}
+		
+		/**
+		 * write version number to db
+		 * 
+		 * @since     1.3.1
+		 */
+		public function set_version_number() {
+			update_option( POLITCH_PLUGIN_PREFIX.'version_number', POLITCH_VERSION );
+		}
+		
+		/**
+		 * upgrade db
+		 * 
+		 * if the plugin was just updated proceed with an upgrade routine
+		 * - set default option values if the last version was smaller than 1.3.0
+		 * - update the version option. on every update.
+		 * 
+		 * @since     1.3.1
+		 */
+		public function upgrade() {
+			$current_version = get_option( POLITCH_PLUGIN_PREFIX.'version_number' );
+			
+			// if everything is up to date stop here
+			if ( POLITCH_VERSION == $current_version ) {
+				return; // BREAKPOINT
+			}
+			
+			// run the upgrade routine for versions smaller 1.3.0
+			if ( -1 == version_compare( $current_version, '1.3.0' ) ) {
+				$this->create_default_options_on_first_plugin_activation();
+			}
+			
+			// set the current version number
+			$this->set_version_number();
 		}
 		
 		/**
