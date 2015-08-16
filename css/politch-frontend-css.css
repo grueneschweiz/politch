@@ -21,7 +21,7 @@ div.politch-person header.politch-entry-header div.politch-preson-preview-info d
 	{ margin-top: 0.8em; }
 
 div.politch-read-more
-	{  }
+	{ cursor: pointer; }
 
 div.politch-social-buttons { margin-top: 0.5em; }
 
