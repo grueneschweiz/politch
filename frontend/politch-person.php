@@ -282,8 +282,9 @@ foreach( $person['groups_slugs'] as $slug ) {
 			<ul>
 			<?php $mandates = explode( "\n", $person[$prefix.'mandates'][0] );
 				foreach( $mandates as $mandate ) {
-					if ( ! empty( preg_replace('/\s+/', '', $mandate ) ) ) {
-						echo "<li>$mandate</li>";
+					$m = preg_replace('/\s+/', '', $mandate );
+					if ( ! empty( $m ) ) {
+						echo "<li>$m</li>";
 					}
 				}
 			?>
@@ -299,8 +300,9 @@ foreach( $person['groups_slugs'] as $slug ) {
 			<ul>
 			<?php $memberships = explode( "\n", $person[$prefix.'memberships'][0] );
 				foreach( $memberships as $membership ) {
-					if ( ! empty( preg_replace('/\s+/', '',$membership ) ) ) {
-						echo "<li>$membership</li>";
+					$m = preg_replace('/\s+/', '', $membership );
+					if ( ! empty( $m ) ) {
+						echo "<li>$m</li>";
 					}
 				}
 			?>
