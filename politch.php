@@ -201,7 +201,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 				'youtube'          => __( 'Youtube', 'politch' ),
 				'vimeo'            => __( 'Vimeo', 'politch' ),
 				'additional_information_title' => __( 'Additional Information Title', 'politch' ),
-				'additional_information_body'  => __( 'Additional Information Body' ),
+				'additional_information_body'  => __( 'Additional Information Body', 'politch' ),
 			);
 			
 			foreach( $fields as $key => $caption ) {
@@ -260,6 +260,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * I18n.
+		 * 
 		 * Put the translation in the languages folder in the plugins directory
 		 * Name the translation files like "nameofplugin-lanugage_COUUNTRY.po". Ex: "politch-fr_FR.po"
 		 */
