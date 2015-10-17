@@ -5,10 +5,10 @@ div.politch-person header.politch-entry-header
 	{  }
 
 div.politch-person div.attachment-post-thumbnail img.attachment-thumbnail
-	{ border-radius: 5px; cursor: pointer; margin: 0; }
+	{ border-radius: 5px; margin: 0; }
 
 div.politch-person header.politch-entry-header h1
-	{ cursor: pointer; }
+	{ }
 	
 div.politch-person header.politch-entry-header div.politch-preson-preview-info
 	{ float: left; width: calc( 100% - 160px ); }
@@ -20,13 +20,13 @@ div.politch-person header.politch-entry-header div.politch-preson-preview-info d
 div.politch-person header.politch-entry-header div.politch-preson-preview-info div.politch-person-cv
 	{ margin-top: 0.8em; }
 
-div.politch-read-more
+.politch-toggle-button
 	{ cursor: pointer; }
 
-div.politch-social-buttons { margin-top: 0.5em; }
+div.politch-social-buttons {  }
 
 .politch-icon
-	{ width: 23px; height: 23px; margin-right: 8px; display: block; float: left; 
+	{ width: 23px; height: 23px; margin-right: 8px; margin-top: 8px; display: block; float: left; 
 	background: transparent url( '../img/politch-icons-green.png' ) no-repeat center center; background-size: auto 100%;}
 
 .politch-icon:hover

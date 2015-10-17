@@ -242,6 +242,41 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 			// return true, if the show on election profiles only flag is not set 
 			return ( ! isset( $this->visibility_options[ POLITCH_PLUGIN_PREFIX . $id ] ) );
 		}
+		
+		/**
+		 * check if there is more to show from a person
+		 * 
+		 * @param     array     $person      the $person array given in $this->get_content_html
+		 * @return    bool                   true if there is more information else false
+		 * 
+		 * @since     1.3.4
+		 */
+		
+		private function has_more( $person ) {
+			$prefix = POLITCH_PLUGIN_PREFIX;
+			return (
+				( ! empty( $person[$prefix.'phone'][0] ) && $this->is_visible( 'phone' ) )||
+				( ! empty( $person[$prefix.'mobile'][0] ) && $this->is_visible( 'mobile' ) ) ||
+				( ! empty( $person[$prefix.'website'][0] ) && $this->is_visible( 'website' ) ) ||
+				( ! empty( $person[$prefix.'facebook'][0] ) && $this->is_visible( 'facebook' ) ) ||
+				( ! empty( $person[$prefix.'twitter'][0] ) && $this->is_visible( 'twitter' ) ) ||
+				( ! empty( $person[$prefix.'linkedin'][0] ) && $this->is_visible( 'linkedin' ) ) ||
+				( ! empty( $person[$prefix.'google_plus'][0] ) && $this->is_visible( 'google_plus' ) ) ||
+				( ! empty( $person[$prefix.'youtube'][0] ) && $this->is_visible( 'youtube' ) ) ||
+				( ! empty( $person[$prefix.'vimeo'][0] ) && $this->is_visible( 'vimeo' ) ) || 
+				( ! empty( $person[$prefix.'smartvote'][0] ) && $this->is_visible( 'smartvote' ) ) ||
+				( ! empty( $person[$prefix.'slogan'][0] ) && $this->is_visible( 'slogan' ) ) ||
+				( ! empty( $person[$prefix.'ticket_name'][0] ) && $this->is_visible( 'ticket_name' ) ) ||
+				( ! empty( $person[$prefix.'ticket_number'][0] ) && $this->is_visible( 'ticket_number' ) ) ||
+				( ! empty( $person[$prefix.'candidate_number'][0] ) && $this->is_visible( 'candidate_number' ) ) ||
+				( ! empty( $person[$prefix.'district'][0] ) && $this->is_visible( 'district' ) ) ||
+				( ! empty( $person[$prefix.'smartspider'][0] ) && $this->is_visible( 'smartspider' ) ) ||
+				( ! empty( $person[$prefix.'mandates'][0] ) && $this->is_visible( 'mandates' ) ) ||
+				( ! empty( $person[$prefix.'memberships'][0] ) && $this->is_visible( 'memberships' ) ) ||
+				( ! empty( $person[$prefix.'additional_information_title'][0] ) && $this->is_visible( 'additional_information_title' ) ) ||
+				( ! empty( $person[$prefix.'additional_information_body'][0] ) && $this->is_visible( 'additional_information_body' ) )
+			);
+		}
 	}
 }
 	

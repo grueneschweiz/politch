@@ -10,17 +10,13 @@ foreach( $person['groups_slugs'] as $slug ) {
 ?>
 <div id="politch-person-<?php echo $person['id']; ?>" class="politch-person-preview politch-person <?php echo implode( ' ', $slugs ); ?>">
 	<header class="entry-header politch-entry-header">
-		<span class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
-			<div class="attachment-post-thumbnail attachment-default-post-thumbnail-wrapper">
-				<?php echo $person['portrait']; ?>
-			</div>
-		</span>
+		<div class="attachment-post-thumbnail attachment-default-post-thumbnail-wrapper <?php echo $this->has_more( $person ) ? 'politch-toggle-button' : ''; ?>" data-politch-id="<?php echo $person['id']; ?>">
+			<?php echo $person['portrait']; ?>
+		</div>
 		
 		<div class="politch-preson-preview-info">
-			<h1 class="entry-title politch-entry-title">
-				<span class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
-					<?php echo $person['name']; ?>
-				</span>
+			<h1 class="entry-title politch-entry-title <?php echo $this->has_more( $person ) ? 'politch-toggle-button' : ''; ?>" data-politch-id="<?php echo $person['id']; ?>">
+				<?php echo $person['name']; ?>
 			</h1>
 			
 			<h2 class="politch-yob-n-city">
@@ -67,30 +63,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 			<?php endif; ?>
 			<?php endif; ?>
 			
-			<?php if ( ( 
-				( ! empty( $person[$prefix.'brief_cv'][0] ) && $this->is_visible( 'brief_cv' ) ) ||
-				( ! empty( $person[$prefix.'email'][0] ) && $this->is_visible( 'email' ) ) ||
-				( ! empty( $person[$prefix.'phone'][0] ) && $this->is_visible( 'phone' ) ) ||
-				( ! empty( $person[$prefix.'mobile'][0] ) && $this->is_visible( 'mobile' ) ) ||
-				( ! empty( $person[$prefix.'website'][0] ) && $this->is_visible( 'website' ) ) ||
-				( ! empty( $person[$prefix.'facebook'][0] ) && $this->is_visible( 'facebook' ) ) ||
-				( ! empty( $person[$prefix.'twitter'][0] ) && $this->is_visible( 'twitter' ) ) ||
-				( ! empty( $person[$prefix.'linkedin'][0] ) && $this->is_visible( 'linkedin' ) ) ||
-				( ! empty( $person[$prefix.'google_plus'][0] ) && $this->is_visible( 'google_plus' ) ) ||
-				( ! empty( $person[$prefix.'youtube'][0] ) && $this->is_visible( 'youtube' ) ) ||
-				( ! empty( $person[$prefix.'vimeo'][0] ) && $this->is_visible( 'vimeo' ) ) || 
-				( ! empty( $person[$prefix.'smartvote'][0] ) && $this->is_visible( 'smartvote' ) ) ||
-				( ! empty( $person[$prefix.'slogan'][0] ) && $this->is_visible( 'slogan' ) ) ||
-				( ! empty( $person[$prefix.'ticket_name'][0] ) && $this->is_visible( 'ticket_name' ) ) ||
-				( ! empty( $person[$prefix.'ticket_number'][0] ) && $this->is_visible( 'ticket_number' ) ) ||
-				( ! empty( $person[$prefix.'candidate_number'][0] ) && $this->is_visible( 'candidate_number' ) ) ||
-				( ! empty( $person[$prefix.'district'][0] ) && $this->is_visible( 'district' ) ) ||
-				( ! empty( $person[$prefix.'smartspider'][0] ) && $this->is_visible( 'smartspider' ) ) ||
-				( ! empty( $person[$prefix.'mandates'][0] ) && $this->is_visible( 'mandates' ) ) ||
-				( ! empty( $person[$prefix.'memberships'][0] ) && $this->is_visible( 'memberships' ) ) ||
-				( ! empty( $person[$prefix.'additional_information_title'][0] ) && $this->is_visible( 'additional_information_title' ) ) ||
-				( ! empty( $person[$prefix.'additional_information_body'][0] ) && $this->is_visible( 'additional_information_body' ) )
-			 ) ) : ?>
+			<?php if ( $this->has_more( $person ) ): ?>
 				<div class="politch-read-more">
 					<a class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
 						<?php _e( '&rarr; Read more', 'politch' ) ?>
