@@ -255,7 +255,18 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 		private function has_more( $person ) {
 			$prefix = POLITCH_PLUGIN_PREFIX;
 			return (
-				( ! empty( $person[$prefix.'phone'][0] ) && $this->is_visible( 'phone' ) )||
+				/*
+				 * @since   1.3.5 
+				 */
+				( ! empty( $person[$prefix.'year_of_birth'][0] ) && $this->is_visible( 'year_of_birth' ) ) ||
+				( ! empty( $person[$prefix.'city'][0] ) && $this->is_visible( 'city' ) ) ||
+				( ! empty( $person[$prefix.'role'][0] ) && $this->is_visible( 'role' ) ) ||
+				( ! empty( $person[$prefix.'email'][0] ) && $this->is_visible( 'email' ) ) ||
+				( ! empty( $person[$prefix.'brief_cv'][0] ) && $this->is_visible( 'brief_cv' ) ) ||
+				/*
+				 * @ since   1.3.4
+				 */
+				( ! empty( $person[$prefix.'phone'][0] ) && $this->is_visible( 'phone' ) ) ||
 				( ! empty( $person[$prefix.'mobile'][0] ) && $this->is_visible( 'mobile' ) ) ||
 				( ! empty( $person[$prefix.'website'][0] ) && $this->is_visible( 'website' ) ) ||
 				( ! empty( $person[$prefix.'facebook'][0] ) && $this->is_visible( 'facebook' ) ) ||
