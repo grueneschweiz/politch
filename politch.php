@@ -681,6 +681,12 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			
 			// register custom overview
 			$post_type->register_overview();
+               
+               // tweak post update messages -> remove any preview
+               add_filter( 'post_updated_messages', array( $post_type, 'remove_post_update_message_links' ) );
+               
+               // remove quick edit link
+               add_filter( 'post_row_actions', array( $post_type, 'remove_quickedit_link' ) );
 		}
 		
 		

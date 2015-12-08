@@ -46,7 +46,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'labels'              => $labels,
 				'hierarchical'        => false,
 				'supports'            => array( 'title', 'thumbnail' ),
-				'public'              => true,
+				'public'              => false,
 				'show_ui'             => true,
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
@@ -402,5 +402,34 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				return null;
 			}
 		}
+          
+          /**
+           * Removes the links in the post update messages for politch
+           * 
+           * Get rid off all previewing and direct links
+           * 
+           * @since 1.3.6
+           */
+          public function remove_post_update_message_links( $messages ) {
+               if ( 'politch' == get_post_type() ) {
+                    $messages['post'][1] = __( 'Post updated.', 'politch' );
+                    $messages['post'][6] = __( 'Post published.', 'politch' );
+                    $messages['post'][8] = __( 'Post submitted.', 'politch' );
+                    $messages['post'][10] = __( 'Post draft updated.', 'politch' );
+               }
+               return $messages;
+          }
+          
+          /**
+           * Remove the quick edit link in the posts table
+           * 
+           * @since 1.3.6
+           */
+          public function remove_quickedit_link( $action ) {
+               if ( 'politch' == get_post_type() ) {
+                    unset( $action['inline hide-if-no-js'] );
+               }
+               return $action;
+          }
 	}
 }
