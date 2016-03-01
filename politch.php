@@ -588,7 +588,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * 
 		 * @todo       update the TGM Plugin and remove the 'if not is_multisite()' condition as soon as the TGM Plugin supports MU.
 		 */
-		private function register_required_plugins() {
+		public function register_required_plugins() {
 			/**
 			 * exit if multisite. The TGM Plugin doesent support MU blogs yet.
 			 * 
