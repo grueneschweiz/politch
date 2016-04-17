@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Politch\n"
-"POT-Creation-Date: 2015-09-25 12:30+0100\n"
-"PO-Revision-Date: 2015-09-29 14:16+0100\n"
+"POT-Creation-Date: 2016-04-17 15:26+0100\n"
+"PO-Revision-Date: 2016-04-17 15:27+0100\n"
 "Last-Translator: Cyrill Bolliger <bolliger@gmx.ch>\n"
 "Language-Team: \n"
 "Language: FR\n"
@@ -39,12 +39,12 @@ msgstr "Fonction"
 msgid "Brief CV"
 msgstr "Biographie résumée"
 
-#: ../politch.php:184 ../frontend/politch-person.php:281
+#: ../politch.php:184 ../frontend/politch-person.php:254
 #: ../includes/class-politch-post-type.php:149
 msgid "Mandates"
 msgstr "Mandats"
 
-#: ../politch.php:185 ../frontend/politch-person.php:299
+#: ../politch.php:185 ../frontend/politch-person.php:272
 #: ../includes/class-politch-post-type.php:157
 msgid "Memberships"
 msgstr "Affiliations"
@@ -69,9 +69,9 @@ msgstr "Numéro de candidat"
 msgid "District"
 msgstr "Cercle électoral"
 
-#: ../politch.php:191 ../frontend/politch-person.php:193
-#: ../frontend/politch-person.php:194 ../frontend/politch-person.php:263
-#: ../frontend/politch-person.php:265
+#: ../politch.php:191 ../frontend/politch-person.php:166
+#: ../frontend/politch-person.php:167 ../frontend/politch-person.php:236
+#: ../frontend/politch-person.php:238
 msgid "Smartvote"
 msgstr "Smartvote"
 
@@ -91,26 +91,26 @@ msgstr "Téléphone"
 msgid "Mobile"
 msgstr "Portable"
 
-#: ../politch.php:196 ../frontend/politch-person.php:137
-#: ../frontend/politch-person.php:138
+#: ../politch.php:196 ../frontend/politch-person.php:110
+#: ../frontend/politch-person.php:111
 #: ../includes/class-politch-post-type.php:258
 msgid "Website"
 msgstr "Site web"
 
-#: ../politch.php:197 ../frontend/politch-person.php:145
-#: ../frontend/politch-person.php:146
+#: ../politch.php:197 ../frontend/politch-person.php:118
+#: ../frontend/politch-person.php:119
 #: ../includes/class-politch-post-type.php:265
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../politch.php:198 ../frontend/politch-person.php:153
-#: ../frontend/politch-person.php:154
+#: ../politch.php:198 ../frontend/politch-person.php:126
+#: ../frontend/politch-person.php:127
 #: ../includes/class-politch-post-type.php:272
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../politch.php:199 ../frontend/politch-person.php:161
-#: ../frontend/politch-person.php:162
+#: ../politch.php:199 ../frontend/politch-person.php:134
+#: ../frontend/politch-person.php:135
 #: ../includes/class-politch-post-type.php:279
 msgid "LinkedIn"
 msgstr "LinkedIN"
@@ -119,14 +119,14 @@ msgstr "LinkedIN"
 msgid "Google+"
 msgstr "Google+"
 
-#: ../politch.php:201 ../frontend/politch-person.php:177
-#: ../frontend/politch-person.php:178
+#: ../politch.php:201 ../frontend/politch-person.php:150
+#: ../frontend/politch-person.php:151
 #: ../includes/class-politch-post-type.php:293
 msgid "Youtube"
 msgstr "Youtube"
 
-#: ../politch.php:202 ../frontend/politch-person.php:185
-#: ../frontend/politch-person.php:186
+#: ../politch.php:202 ../frontend/politch-person.php:158
+#: ../frontend/politch-person.php:159
 #: ../includes/class-politch-post-type.php:300
 msgid "Vimeo"
 msgstr "Vimeo"
@@ -152,38 +152,38 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: ../politch.php:642 ../vendor/class-tgm-plugin-activation.php:333
+#: ../politch.php:643 ../vendor/class-tgm-plugin-activation.php:333
 msgid "Install Required Plugins"
 msgstr ""
 
-#: ../politch.php:643 ../vendor/class-tgm-plugin-activation.php:334
+#: ../politch.php:644 ../vendor/class-tgm-plugin-activation.php:334
 msgid "Install Plugins"
 msgstr ""
 
-#: ../politch.php:644 ../vendor/class-tgm-plugin-activation.php:335
+#: ../politch.php:645 ../vendor/class-tgm-plugin-activation.php:335
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: ../politch.php:645 ../vendor/class-tgm-plugin-activation.php:336
+#: ../politch.php:646 ../vendor/class-tgm-plugin-activation.php:336
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: ../politch.php:646 ../vendor/class-tgm-plugin-activation.php:338
+#: ../politch.php:647 ../vendor/class-tgm-plugin-activation.php:338
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:647 ../vendor/class-tgm-plugin-activation.php:343
+#: ../politch.php:648 ../vendor/class-tgm-plugin-activation.php:343
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:648
+#: ../politch.php:649
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -196,21 +196,21 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:649 ../vendor/class-tgm-plugin-activation.php:368
+#: ../politch.php:650 ../vendor/class-tgm-plugin-activation.php:368
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:650 ../vendor/class-tgm-plugin-activation.php:373
+#: ../politch.php:651 ../vendor/class-tgm-plugin-activation.php:373
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:651
+#: ../politch.php:652
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
@@ -223,7 +223,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:652 ../vendor/class-tgm-plugin-activation.php:353
+#: ../politch.php:653 ../vendor/class-tgm-plugin-activation.php:353
 #, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -234,7 +234,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:653
+#: ../politch.php:654
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -247,37 +247,37 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:654 ../vendor/class-tgm-plugin-activation.php:383
+#: ../politch.php:655 ../vendor/class-tgm-plugin-activation.php:383
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:655 ../vendor/class-tgm-plugin-activation.php:393
+#: ../politch.php:656 ../vendor/class-tgm-plugin-activation.php:393
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../politch.php:656 ../vendor/class-tgm-plugin-activation.php:397
+#: ../politch.php:657 ../vendor/class-tgm-plugin-activation.php:397
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: ../politch.php:657 ../vendor/class-tgm-plugin-activation.php:399
+#: ../politch.php:658 ../vendor/class-tgm-plugin-activation.php:399
 #: ../vendor/class-tgm-plugin-activation.php:3029
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: ../politch.php:658
+#: ../politch.php:659
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: ../politch.php:711
+#: ../politch.php:718
 msgid "Insert people"
 msgstr "Insérer des personnes"
 
-#: ../politch.php:713
+#: ../politch.php:720
 msgid "Add people"
 msgstr "Ajouter des personnes"
 
@@ -318,44 +318,46 @@ msgstr "Montrer les informations électorales"
 msgid "Insert shortcode"
 msgstr "Insérer un shortcode"
 
-#: ../frontend/politch-person.php:96
-msgid "&rarr; Read more"
-msgstr "&rarr; plus d'infos"
+#: ../frontend/politch-person.php:69
+#, php-format
+msgctxt "Read more arrow"
+msgid "%s Read more"
+msgstr "%s plus d'infos"
 
-#: ../frontend/politch-person.php:110
+#: ../frontend/politch-person.php:83
 msgid "Mail:"
 msgstr "E-mail:"
 
-#: ../frontend/politch-person.php:119
+#: ../frontend/politch-person.php:92
 msgid "Phone:"
 msgstr "Numéro de téléphone:"
 
-#: ../frontend/politch-person.php:128
+#: ../frontend/politch-person.php:101
 msgid "Mobile:"
 msgstr "Portable:"
 
-#: ../frontend/politch-person.php:169 ../frontend/politch-person.php:170
+#: ../frontend/politch-person.php:142 ../frontend/politch-person.php:143
 #: ../includes/class-politch-post-type.php:286
 msgid "Google Plus"
 msgstr "Google Plus"
 
-#: ../frontend/politch-person.php:213
+#: ../frontend/politch-person.php:186
 msgid "Election info"
 msgstr "Informations de vote"
 
-#: ../frontend/politch-person.php:227
+#: ../frontend/politch-person.php:200
 msgid "Ticket name:"
 msgstr "Nom de liste:"
 
-#: ../frontend/politch-person.php:236
+#: ../frontend/politch-person.php:209
 msgid "Ticket number:"
 msgstr "Numéro de liste:"
 
-#: ../frontend/politch-person.php:245
+#: ../frontend/politch-person.php:218
 msgid "Candidate number:"
 msgstr "Numéro de candidat:"
 
-#: ../frontend/politch-person.php:254
+#: ../frontend/politch-person.php:227
 msgid "District:"
 msgstr "Cercle électoral:"
 
@@ -615,6 +617,22 @@ msgstr "Portrait"
 #: ../includes/class-politch-post-type.php:352
 msgid "ID"
 msgstr "ID"
+
+#: ../includes/class-politch-post-type.php:415
+msgid "Post updated."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:416
+msgid "Post published."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:417
+msgid "Post submitted."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:418
+msgid "Post draft updated."
+msgstr ""
 
 #: ../vendor/class-tgm-plugin-activation.php:348
 #, php-format
@@ -958,15 +976,13 @@ msgstr ""
 
 #: ../vendor/class-tgm-plugin-activation.php:3370
 #: ../vendor/class-tgm-plugin-activation.php:3376
-#, fuzzy
 msgid "Show Details"
-msgstr "Détails %s"
+msgstr "Afficher les détails"
 
 #: ../vendor/class-tgm-plugin-activation.php:3370
 #: ../vendor/class-tgm-plugin-activation.php:3376
-#, fuzzy
 msgid "Hide Details"
-msgstr "Détails %s"
+msgstr "Cacher les détails"
 
 #: ../vendor/class-tgm-plugin-activation.php:3371
 msgid "All installations and activations have been completed."
