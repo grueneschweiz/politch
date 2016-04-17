@@ -65,8 +65,8 @@ foreach( $person['groups_slugs'] as $slug ) {
 			
 			<?php if ( $this->has_more( $person ) ): ?>
 				<div class="politch-read-more">
-					<a class="politch-toggle-button" data-politch-id="<?php echo $person['id']; ?>">
-						<?php _e( '&rarr; Read more', 'politch' ) ?>
+					<a class="politch-toggle-button read-more" data-politch-id="<?php echo $person['id']; ?>">
+						<?php printf( _x( '%s Read more', 'Read more arrow', 'politch' ), '&raquo;'); ?>
 					</a>
 				</div>
 			<?php endif; ?> 
