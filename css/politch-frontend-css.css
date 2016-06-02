@@ -10,13 +10,13 @@ div.politch-person div.attachment-post-thumbnail
 div.politch-person div.attachment-post-thumbnail img.attachment-thumbnail
 	{ border-radius: 5px; margin: 0; }
 
-div.politch-person header.politch-entry-header h1
+div.politch-person header.politch-entry-header h2
 	{ }
 	
 div.politch-person header.politch-entry-header div.politch-preson-preview-info
 	{ float: left; width: calc( 100% - 160px ); }
 
-div.politch-person header.politch-entry-header div.politch-preson-preview-info h2
+div.politch-person header.politch-entry-header div.politch-preson-preview-info h3
 	{ margin-top: -0.5em; }
 
 div.politch-person header.politch-entry-header div.politch-preson-preview-info div.politch-person-mail,

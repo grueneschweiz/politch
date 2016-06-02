@@ -15,11 +15,11 @@ foreach( $person['groups_slugs'] as $slug ) {
 		</div>
 		
 		<div class="politch-preson-preview-info">
-			<h1 class="entry-title politch-entry-title <?php echo $this->has_more( $person ) ? 'politch-toggle-button' : ''; ?>" data-politch-id="<?php echo $person['id']; ?>">
+			<h2 class="entry-title politch-entry-title <?php echo $this->has_more( $person ) ? 'politch-toggle-button' : ''; ?>" data-politch-id="<?php echo $person['id']; ?>">
 				<?php echo $person['name']; ?>
-			</h1>
+			</h2>
 			
-			<h2 class="politch-yob-n-city">
+			<h3 class="politch-yob-n-city">
 				<?php 
 					$yob_n_city = array();
 					if ( $this->is_visible( 'year_of_birth' ) ) {
@@ -37,7 +37,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 						echo $yob_n_city_string;
 					}
 				?>
-			</h2>
+			</h3>
 			
 			<?php if ( $this->is_visible( 'roles' ) ) : ?>
 			<?php if ( ! empty( $person[$prefix.'roles'][0] ) ) : ?>
