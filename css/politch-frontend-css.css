@@ -3,6 +3,9 @@ div.politch-person
 
 div.politch-person header.politch-entry-header
 	{  }
+     
+div.politch-person div.attachment-post-thumbnail
+     { float: left; }
 
 div.politch-person div.attachment-post-thumbnail img.attachment-thumbnail
 	{ border-radius: 5px; margin: 0; }
