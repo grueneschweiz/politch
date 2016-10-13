@@ -108,7 +108,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 			$meta_boxes[] = array(
 				'id'         => $prefix . 'personal_information',
 				'title'      => __( 'Personal information', 'politch' ),
-				'pages'      => array( 'politch' ),
+				'post_types' => array( 'politch' ),
 				'context'    => 'normal',
 				'priority'   => 'high',
 				'autosave'   => true,
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 			$meta_boxes[] = array(
 				'id'         => $prefix . 'election_information',
 				'title'      => __( 'Election information', 'politch' ),
-				'pages'      => array( 'politch' ),
+				'post_types' => array( 'politch' ),
 				'context'    => 'normal',
 				'priority'   => 'high',
 				'autosave'   => true,
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 			$meta_boxes[] = array(
 				'id'         => $prefix . 'contact_information',
 				'title'      => __( 'Contact information', 'politch' ),
-				'pages'      => array( 'politch') ,
+				'post_types' => array( 'politch') ,
 				'context'    => 'normal',
 				'priority'   => 'high',
 				'autosave'   => true,
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 			$meta_boxes[] = array(
 				'id'         => $prefix . 'additional_information',
 				'title'      => __( 'Additional information', 'politch' ),
-				'pages'      => array( 'politch' ),
+				'post_types' => array( 'politch' ),
 				'context'    => 'normal',
 				'priority'   => 'high',
 				'autosave'   => true,
