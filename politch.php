@@ -72,7 +72,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			register_activation_hook( __FILE__, array( &$this, 'activate' ) );
 			register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
 			
-			add_action( 'init', array( &$this, 'init' ) );
+			add_action( 'init', array( &$this, 'init' ), 9 ); // plugin has to load before the meta-box plugin
 			add_action( 'init', array( &$this, 'fe_init' ) );
 			add_action( 'admin_init', array( &$this, 'admin_init' ) );
 			add_action( 'admin_menu', array( &$this, 'add_menu' ) );
@@ -675,10 +675,10 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			
 			// register post type and taxonomy
 			$post_type->register_post_type();
-			
+			               
 			// add meta boxes
 			add_filter( 'rwmb_meta_boxes', array( $post_type, 'add_meta_boxes' ) );
-			
+                             
 			// register custom overview
 			$post_type->register_overview();
                
