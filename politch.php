@@ -687,6 +687,13 @@ if ( ! class_exists( 'Politch_Main' ) ) {
                
                // remove quick edit link
                add_filter( 'post_row_actions', array( $post_type, 'remove_quickedit_link' ) );
+               
+               /**
+                * set template for single post
+                * 
+                * @since 1.4.0
+                */
+               add_filter( 'single_template', array( $post_type, 'set_politch_single_template' ) );
 		}
 		
 		

@@ -52,7 +52,7 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 				'show_in_nav_menus'   => true,
 				'publicly_queryable'  => true,
 				'exclude_from_search' => false,
-				'has_archive'         => true,
+				'has_archive'         => false,
 				'query_var'           => true,
 				'can_export'          => true,
 				'capability_type'     => 'post',
@@ -431,5 +431,24 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
                }
                return $action;
           }
+          
+          /**
+           * Set template for direct single person view
+           * 
+           * Usually people will be displayed by shortcode. But for better
+           * CEO we also want single pages of every person. This method sets
+           * the template for this single persons.
+           * 
+           * @since 1.4.0
+           */
+          public function set_politch_single_template( $single_template ) {
+               global $post;
+               
+               if ( $post->post_type == 'politch' ) {
+                    $single_template = POLITCH_PLUGIN_PATH . '/frontend/single-politch.php';
+               }
+               return $single_template;
+          }
+          
 	}
 }

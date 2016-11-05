@@ -1,6 +1,9 @@
 div.politch-person
 	{ margin: 2em 0; }
 
+div.politch-single-person div.politch-person
+	{ margin: 0; }
+     
 div.politch-person header.politch-entry-header
 	{  }
      
