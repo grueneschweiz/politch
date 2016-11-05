@@ -256,12 +256,8 @@ if ( ! class_exists( 'Politch_Frontend' ) ) {
 			$prefix = POLITCH_PLUGIN_PREFIX;
 			return (
 				/*
-				 * @since   1.3.5 
+				 * @since   1.3.11 
 				 */
-				( ! empty( $person[$prefix.'year_of_birth'][0] ) && $this->is_visible( 'year_of_birth' ) ) ||
-				( ! empty( $person[$prefix.'city'][0] ) && $this->is_visible( 'city' ) ) ||
-				( ! empty( $person[$prefix.'role'][0] ) && $this->is_visible( 'role' ) ) ||
-				( ! empty( $person[$prefix.'email'][0] ) && $this->is_visible( 'email' ) ) ||
 				( ! empty( $person[$prefix.'brief_cv'][0] ) && $this->is_visible( 'brief_cv' ) ) ||
 				/*
 				 * @ since   1.3.4
