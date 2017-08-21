@@ -104,15 +104,18 @@ foreach( $person['groups_slugs'] as $slug ) {
 			<?php endif; ?>
 			<?php endif; ?>
 			
+			<?php if ( $this->is_visible( 'website' ) ) : ?>
+            <?php if ( ! empty( $person[$prefix.'website'][0] ) ) : ?>
+                <div class="politch-person-website">
+                    <span class="politch-field-label"><?php _e( 'Website:', 'politch' ); ?></span>
+                    <a target="_blank" href="<?php echo $person[$prefix.'website'][0]; ?>" title="<?php _e( 'Website', 'politch' ); ?>">
+                        <?php echo preg_replace('/^https?:\/\//','', preg_replace('/\/$/', '', $person[$prefix.'website'][0])); ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+			<?php endif; ?>
+   
 			<div class="politch-social-buttons">
-				<?php if ( $this->is_visible( 'website' ) ) : ?>
-				<?php if ( ! empty( $person[$prefix.'website'][0] ) ) : ?>
-				<a target="_blank" href="<?php echo $person[$prefix.'website'][0]; ?>" title="<?php _e( 'Website', 'politch' ); ?>" class="politch-person-website politch-icon politch-icon-website">
-					<span class="politch-field-label screen-reader-text"><?php _e( 'Website', 'politch' ); ?>: <?php echo $person[$prefix.'website'][0]; ?></span>
-				</a>
-				<?php endif; ?>
-				<?php endif; ?>
-			
 				<?php if ( $this->is_visible( 'facebook' ) ) : ?>
 				<?php if ( ! empty( $person[$prefix.'facebook'][0] ) ) : ?>
 				<a target="_blank" href="<?php echo $person[$prefix.'facebook'][0]; ?>" title="<?php _e( 'Facebook', 'politch' ); ?>" class="politch-person-facebook politch-icon politch-icon-facebook">
