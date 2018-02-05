@@ -4,6 +4,7 @@ ob_start();
 
 <?php 
 //prefix taxonomy (groups) slugs
+$slugs = array();
 foreach( $person['groups_slugs'] as $slug ) {
 	$slugs[] = 'politch-group-' . $slug;
 }
