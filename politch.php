@@ -2,13 +2,13 @@
 
 /**
  * Plugin Name: Politch
- * Plugin URI: https://github.com/cyrillbolliger/politch
+ * Plugin URI: https://github.com/grueneschweiz/politch
  * Version: 1.4.2
  * Description: Plugin to display politicians profiles. Especially designed for swiss needs.
  * Author: Cyrill Bolliger
  * Text Domain: politch
  * Domain Path: languages
- * GitHub Plugin URI: cyrillbolliger/politch
+ * GitHub Plugin URI: grueneschweiz/politch
  * License: GPL 2.
  */
  
