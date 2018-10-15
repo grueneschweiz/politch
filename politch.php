@@ -14,16 +14,16 @@
  
 /**
  * Copyright 2015  Cyrill Bolliger  (email : bolliger@gmx.ch)
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 2, as 
+ * it under the terms of the GNU General Public License, version 2, as
  * published by the Free Software Foundation.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -31,7 +31,7 @@
  
 
 /**
- * lock out script kiddies: die an direct call 
+ * lock out script kiddies: die an direct call
  */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * write version number to db
-		 * 
+		 *
 		 * @since     1.3.1
 		 */
 		public function set_version_number() {
@@ -139,11 +139,11 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * upgrade db
-		 * 
+		 *
 		 * if the plugin was just updated proceed with an upgrade routine
 		 * - set default option values if the last version was smaller than 1.3.0
 		 * - update the version option. on every update.
-		 * 
+		 *
 		 * @since     1.3.1
 		 */
 		public function upgrade() {
@@ -167,12 +167,12 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * Initialize some custom settings
 		 */
 		public function init_options() {
-			register_setting( 'politch_options', 'politch_field_visibility' ); 
+			register_setting( 'politch_options', 'politch_field_visibility' );
 			
 			add_settings_section(
-				'politch_visibility_options', 
-				__( 'Visibility options', 'politch' ), 
-				array( &$this, 'visibility_options_callback' ), 
+				'politch_visibility_options',
+				__( 'Visibility options', 'politch' ),
+				array( &$this, 'visibility_options_callback' ),
 				'politch_options'
 			);
 			
@@ -205,11 +205,11 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			);
 			
 			foreach( $fields as $key => $caption ) {
-				add_settings_field( 
-					'politch_' . $key, 
-					$caption, 
+				add_settings_field(
+					'politch_' . $key,
+					$caption,
 					array( &$this, 'render_options_checkbox' ),
-					'politch_options', 
+					'politch_options',
 					'politch_visibility_options',
 					array( 'id' => 'politch_' . $key )
 				);
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * I18n.
-		 * 
+		 *
 		 * Put the translation in the languages folder in the plugins directory
 		 * Name the translation files like "nameofplugin-lanugage_COUUNTRY.po". Ex: "politch-fr_FR.po"
 		 */
@@ -351,7 +351,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		private function add_capabilities_for_single_blog() {
 			$capabilities = array(
 				'politch_edit_person',
-			); 
+			);
 			$this->add_plugin_capabilities_for( 'editor', $capabilities[0] );
 			$this->add_plugin_capabilities_for( 'administrator' , $capabilities );
 		}
@@ -383,7 +383,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		private function remove_capabilities_for_single_blog() {
 			$capabilities = array(
 				'politch_edit_person',
-			); 
+			);
 			$this->remove_plugin_capabilities_for( 'editor', $capabilities[0] );
 			$this->remove_plugin_capabilities_for( 'administrator' , $capabilities );
 			
@@ -391,7 +391,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * Add capabilities
-		 * 
+		 *
 		 * @var string			$role_name		subject
 		 * @var string|array 	$capabilities	caps to add
 		 */
@@ -404,7 +404,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * Remove capabilities
-		 * 
+		 *
 		 * @var string			$role_name		subject
 		 * @var string|array 	$capabilities	caps to remove
 		 */
@@ -468,7 +468,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * handle short code
-		 * 
+		 *
 		 * @var		array	$atts	provided from WP's add_shortcode() function
 		 * @return	string
 		 */
@@ -515,11 +515,11 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * register script
-		 * 
+		 *
 		 * @var array 	$script		for params see __construct in Politch_Settings
 		 */
 		public function register_script( $script ) {
-			wp_register_script( 
+			wp_register_script(
 				$script['handle'],
 				plugins_url( $script['src'], __FILE__ ),
 				$script['deps'],
@@ -530,7 +530,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * register style
-		 * 
+		 *
 		 * @var array 	$style		for params see __construct in Politch_Settings
 		 */
 		public function register_style( $style ) {
@@ -545,7 +545,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		
 		/**
-		 * Load TGM plugin 
+		 * Load TGM plugin
 		 *
 		 * Will only be loaded for single site blogs (MU isn't supportet yet. Check https://github.com/TGMPA/TGM-Plugin-Activation for
 		 * more information. Most problably in v3 it will be supported.)
@@ -554,14 +554,14 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 * @package    TGM-Plugin-Activation
 		 * @uses       /vendor/class-tgm-plugin-activation.php
 		 * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
-		 * 
+		 *
 		 * @todo       update the TGM Plugin and remove the 'if not is_multisite()' condition as soon as the TGM Plugin supports MU.
-		 * 
+		 *
 		 */
 		private function load_tgm_plugin_activation_class() {
 			/**
 			 * exit if multisite. The TGM Plugin doesent support MU blogs yet.
-			 * 
+			 *
 			 * @todo   update the TGM Plugin and remove the 'if not is_multisite()' condition as soon as the TGM Plugin supports MU.
 			 */
 			if ( is_multisite() ) {
@@ -581,17 +581,17 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		 *
 		 * This function is hooked into tgmpa_init, which is fired within the
 		 * TGM_Plugin_Activation class constructor.
-		 * 
+		 *
 		 * @package    TGM-Plugin-Activation
 		 * @uses       /vendor/class-tgm-plugin-activation.php
 		 * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
-		 * 
+		 *
 		 * @todo       update the TGM Plugin and remove the 'if not is_multisite()' condition as soon as the TGM Plugin supports MU.
 		 */
 		public function register_required_plugins() {
 			/**
 			 * exit if multisite. The TGM Plugin doesent support MU blogs yet.
-			 * 
+			 *
 			 * @todo   update the TGM Plugin and remove the 'if not is_multisite()' condition as soon as the TGM Plugin supports MU.
 			 */
 			if ( is_multisite() ) {
@@ -675,10 +675,10 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			
 			// register post type and taxonomy
 			$post_type->register_post_type();
-			               
+			
 			// add meta boxes
 			add_filter( 'rwmb_meta_boxes', array( $post_type, 'add_meta_boxes' ) );
-                             
+   
 			// register custom overview
 			$post_type->register_overview();
                
@@ -690,7 +690,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
                
                /**
                 * set template for single post
-                * 
+                *
                 * @since 1.4.0
                 */
                add_filter( 'single_template', array( $post_type, 'set_politch_single_template' ) );
@@ -699,10 +699,10 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 		
 		/**
 		 * Add a media button to the post & page edit pages to insert shortcode easly
-		 * 
+		 *
 		 * @param    string    $context    given from 'media_buttons_context'-filter
 		 * @return   string
-		 * 
+		 *
 		 * @see                            http://de.wpseek.com/function/media_buttons/
 		 */
 		public function add_media_button( $context ) {
@@ -713,11 +713,11 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			}
 			
 			// verify the post type
-			if( ! in_array( $typenow, array( 'post', 'page' ) ) ) {
+			if( ! in_array( $typenow, array( 'post', 'page', 'tribe_events' ) ) ) {
 				return; // BREAKPOINT
 			}
 			
-			// make sure the thickbox script is loaded 
+			// make sure the thickbox script is loaded
 			add_thickbox();
 			
 			// add media button
@@ -738,7 +738,7 @@ if ( ! class_exists( 'Politch_Main' ) ) {
 			}
 			
 			// verify the post type
-			if( ! in_array( $typenow, array( 'post', 'page' ) ) ) {
+			if( ! in_array( $typenow, array( 'post', 'page', 'tribe_events' ) ) ) {
 				return; // BREAKPOINT
 			}
 			
@@ -769,4 +769,3 @@ if ( class_exists( 'Politch_Main' ) ) {
 	
 	$politch_main = new Politch_Main();
 }
-	
