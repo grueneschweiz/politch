@@ -299,7 +299,7 @@ foreach( $person['groups_slugs'] as $slug ) {
 		<?php if ( $this->is_visible( 'additional_information_body' ) ) : ?>
 		<?php if ( ! empty( $person[$prefix.'additional_information_body'][0] ) ) : ?>
 		<div class="politch-person-additional_information_body">
-			<?php echo $person[$prefix.'additional_information_body'][0]; ?>
+			<?php echo do_shortcode( $person[$prefix.'additional_information_body'][0] ); ?>
 		</div>
 		<?php endif; ?>
 		<?php endif; ?>
