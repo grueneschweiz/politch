@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Politch\n"
-"POT-Creation-Date: 2016-04-17 15:26+0100\n"
-"PO-Revision-Date: 2016-04-17 15:27+0100\n"
+"POT-Creation-Date: 2021-02-19 09:47+0100\n"
+"PO-Revision-Date: 2021-02-19 09:55+0100\n"
 "Last-Translator: Cyrill Bolliger <bolliger@gmx.ch>\n"
 "Language-Team: \n"
-"Language: FR\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:4c,1,2;_n_noop:1,2;"
 "_nx_noop:4c,1,2;esc_html__;esc_html_e;esc_html_x:1,2c;esc_attr__;esc_attr_e;"
 "esc_attr_x:1,2c\n"
@@ -18,126 +18,477 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../politch.php:174
-msgid "Visibility options"
+#: ../admin/options.php:2
+msgid "People options"
 msgstr ""
 
-#: ../politch.php:180 ../includes/class-politch-post-type.php:117
+#: ../admin/short-code-generator.php:8
+msgid "Chose type"
+msgstr ""
+
+#: ../admin/short-code-generator.php:9
+msgid "Single person"
+msgstr "Personne seule"
+
+#: ../admin/short-code-generator.php:17
+msgid "No people available."
+msgstr "Aucune personne disponible."
+
+#: ../admin/short-code-generator.php:19 ../admin/short-code-generator.php:20
+msgid "Chose person"
+msgstr "Sélectionner une personne"
+
+#: ../admin/short-code-generator.php:30 ../admin/short-code-generator.php:43
+msgid "No groups available."
+msgstr "Aucun groupe disponible."
+
+#: ../admin/short-code-generator.php:32 ../admin/short-code-generator.php:33
+#: ../admin/short-code-generator.php:45
+msgid "Chose group"
+msgstr "Sélectionner un groupe"
+
+#: ../admin/short-code-generator.php:55
+msgid "Show election info"
+msgstr "Montrer les informations électorales"
+
+#: ../admin/short-code-generator.php:58
+msgid "Insert shortcode"
+msgstr "Insérer un shortcode"
+
+#: ../frontend/politch-person.php:70
+#, php-format
+msgctxt "Read more arrow"
+msgid "%s Read more"
+msgstr "%s plus d'infos"
+
+#: ../frontend/politch-person.php:84
+msgid "Mail:"
+msgstr "E-mail&nbsp;:"
+
+#: ../frontend/politch-person.php:93
+msgid "Phone:"
+msgstr "Numéro de téléphone&nbsp;:"
+
+#: ../frontend/politch-person.php:102
+msgid "Mobile:"
+msgstr "Portable&nbsp;:"
+
+#: ../frontend/politch-person.php:111
+msgid "Website:"
+msgstr "Site&nbsp;web&nbsp;:"
+
+#: ../frontend/politch-person.php:112
+#: ../includes/class-politch-post-type.php:258 ../politch.php:196
+msgid "Website"
+msgstr "Site web"
+
+#: ../frontend/politch-person.php:122 ../frontend/politch-person.php:123
+#: ../includes/class-politch-post-type.php:265 ../politch.php:197
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../frontend/politch-person.php:130 ../frontend/politch-person.php:131
+#: ../includes/class-politch-post-type.php:272 ../politch.php:198
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../frontend/politch-person.php:138 ../frontend/politch-person.php:139
+#: ../includes/class-politch-post-type.php:279 ../politch.php:199
+msgid "LinkedIn"
+msgstr "LinkedIN"
+
+#: ../frontend/politch-person.php:146 ../frontend/politch-person.php:147
+#: ../includes/class-politch-post-type.php:286
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: ../frontend/politch-person.php:154 ../frontend/politch-person.php:155
+#: ../includes/class-politch-post-type.php:293 ../politch.php:201
+msgid "Youtube"
+msgstr "Youtube"
+
+#: ../frontend/politch-person.php:162 ../frontend/politch-person.php:163
+#: ../includes/class-politch-post-type.php:300 ../politch.php:202
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: ../frontend/politch-person.php:170 ../frontend/politch-person.php:171
+#: ../frontend/politch-person.php:240 ../frontend/politch-person.php:242
+#: ../politch.php:191
+msgid "Smartvote"
+msgstr "Smartvote"
+
+#: ../frontend/politch-person.php:190
+msgid "Election info"
+msgstr "Informations de vote"
+
+#: ../frontend/politch-person.php:204
+msgid "Ticket name:"
+msgstr "Nom de liste&nbsp;:"
+
+#: ../frontend/politch-person.php:213
+msgid "Ticket number:"
+msgstr "Numéro de liste&nbsp;:"
+
+#: ../frontend/politch-person.php:222
+msgid "Candidate number:"
+msgstr "Numéro de candidat&nbsp;:"
+
+#: ../frontend/politch-person.php:231
+msgid "District:"
+msgstr "Cercle électoral&nbsp;:"
+
+#: ../frontend/politch-person.php:258
+#: ../includes/class-politch-post-type.php:149 ../politch.php:184
+msgid "Mandates"
+msgstr "Mandats"
+
+#: ../frontend/politch-person.php:276
+#: ../includes/class-politch-post-type.php:157 ../politch.php:185
+msgid "Memberships"
+msgstr "Engagement"
+
+#: ../includes/class-politch-frontend.php:28
+msgid "Unknown shortcode or invalid arguments."
+msgstr "Shortcode inconnu ou arguments non-valables."
+
+#: ../includes/class-politch-frontend.php:196
+#, php-format
+msgid "No people found in the group \"%s\"."
+msgstr "Aucune personne n'a été trouvée au sein du groupe \"%s\"."
+
+#: ../includes/class-politch-frontend.php:221
+msgid "Blank avatar"
+msgstr "Avatar"
+
+#: ../includes/class-politch-post-type.php:31
+#: ../includes/class-politch-post-type.php:42
+#: ../includes/class-politch-post-type.php:45
+msgid "People"
+msgstr "Personnes"
+
+#: ../includes/class-politch-post-type.php:32
+msgid "Person"
+msgstr "Personne"
+
+#: ../includes/class-politch-post-type.php:33
+msgid "Add New Person"
+msgstr "Ajouter une personne"
+
+#: ../includes/class-politch-post-type.php:34
+msgid "Add New"
+msgstr "Ajouter"
+
+#: ../includes/class-politch-post-type.php:35
+msgid "Edit Person"
+msgstr "Modifier la personne"
+
+#: ../includes/class-politch-post-type.php:36
+msgid "New Person"
+msgstr "Nouvelle personne"
+
+#: ../includes/class-politch-post-type.php:37
+msgid "View Person"
+msgstr "Voir la personne"
+
+#: ../includes/class-politch-post-type.php:38
+msgid "Search Person"
+msgstr "Chercher une personne"
+
+#: ../includes/class-politch-post-type.php:39
+msgid "Not found any People"
+msgstr "Aucune personne correspondante n'a été trouvée."
+
+#: ../includes/class-politch-post-type.php:40
+msgid "No Person found in Trash"
+msgstr "Aucune personne correspondante n'a été trouvée dans la corbeille."
+
+#: ../includes/class-politch-post-type.php:41
+msgid "Parent Person:"
+msgstr "Personne parente:"
+
+#: ../includes/class-politch-post-type.php:66
+#: ../includes/class-politch-post-type.php:81
+msgid "Groups"
+msgstr "Groupes"
+
+#: ../includes/class-politch-post-type.php:67
+msgid "Group"
+msgstr "Groupe"
+
+#: ../includes/class-politch-post-type.php:68
+msgid "Search Groups"
+msgstr "Rechercher des groupes"
+
+#: ../includes/class-politch-post-type.php:69
+msgid "Popular Groups"
+msgstr "Groupes préférés"
+
+#: ../includes/class-politch-post-type.php:70
+msgid "All Groups"
+msgstr "Tous les groupes"
+
+#: ../includes/class-politch-post-type.php:73
+msgid "Edit Group"
+msgstr "Modifier le groupe"
+
+#: ../includes/class-politch-post-type.php:74
+msgid "Update Group"
+msgstr "Mettre à jour le groupe"
+
+#: ../includes/class-politch-post-type.php:75
+msgid "Add New Group"
+msgstr "Ajouter un groupe"
+
+#: ../includes/class-politch-post-type.php:76
+msgid "New Group Name"
+msgstr "Renommer le groupe"
+
+#: ../includes/class-politch-post-type.php:77
+msgid "Separate Groups with commas"
+msgstr "Séparer les groupes par des virgules"
+
+#: ../includes/class-politch-post-type.php:78
+msgid "Add or remove Groups"
+msgstr "Ajouter ou supprimer des groupes"
+
+#: ../includes/class-politch-post-type.php:79
+msgid "Choose from the most used Groups"
+msgstr "Sélectionner parmi les groupes préférés"
+
+#: ../includes/class-politch-post-type.php:80
+msgid "No Groups found."
+msgstr "Aucun groupe ne correspond à ces critères."
+
+#: ../includes/class-politch-post-type.php:106
+#: ../includes/class-politch-post-type.php:400
+msgid "Election only"
+msgstr "Apparaitra uniquement sur le profil de vote"
+
+#: ../includes/class-politch-post-type.php:110
+msgid "Personal information"
+msgstr "Infos sur la personne"
+
+#: ../includes/class-politch-post-type.php:117 ../politch.php:180
 msgid "Year of birth"
 msgstr "Année de naissance"
 
-#: ../politch.php:181 ../includes/class-politch-post-type.php:127
+#: ../includes/class-politch-post-type.php:118
+msgid "Year of birth. Ex: 1970"
+msgstr "Année de naissance, p.ex: 1970"
+
+#: ../includes/class-politch-post-type.php:127 ../politch.php:181
 msgctxt "Place of residence"
 msgid "City"
 msgstr "Commune"
 
-#: ../politch.php:182 ../includes/class-politch-post-type.php:134
+#: ../includes/class-politch-post-type.php:128
+msgctxt "Place of residence"
+msgid "Hometown"
+msgstr "Commune"
+
+#: ../includes/class-politch-post-type.php:134 ../politch.php:182
 msgid "Role"
 msgstr "Fonction"
 
-#: ../politch.php:183 ../includes/class-politch-post-type.php:141
+#: ../includes/class-politch-post-type.php:135
+msgid "List of the current roles of this person. Use a comma to separate them."
+msgstr ""
+"Liste des fonctions actuelles de cette personne. Veuillez utiliser des "
+"virgules entre chaque fonction."
+
+#: ../includes/class-politch-post-type.php:141 ../politch.php:183
 msgid "Brief CV"
 msgstr "Biographie résumée"
 
-#: ../politch.php:184 ../frontend/politch-person.php:254
-#: ../includes/class-politch-post-type.php:149
-msgid "Mandates"
-msgstr "Mandats"
+#: ../includes/class-politch-post-type.php:142
+msgid "Very short curivulum vitae (2-3 lines)."
+msgstr "Biographie très courte (2-3 lignes)"
 
-#: ../politch.php:185 ../frontend/politch-person.php:272
-#: ../includes/class-politch-post-type.php:157
-msgid "Memberships"
-msgstr "Affiliations"
+#: ../includes/class-politch-post-type.php:150
+msgid ""
+"List of organizations where this person has mandates. Use one line per "
+"organization."
+msgstr "Liste des mandats de cette personne. Un mandat par ligne."
 
-#: ../politch.php:186 ../includes/class-politch-post-type.php:176
+#: ../includes/class-politch-post-type.php:158
+msgid ""
+"List of organizations where this person is a member of. Use one line per "
+"organization."
+msgstr "Liste des affiliations de cette personne. Une association par ligne."
+
+#: ../includes/class-politch-post-type.php:169
+msgid "Election information"
+msgstr "Informations sur les élections"
+
+#: ../includes/class-politch-post-type.php:176 ../politch.php:186
 msgid "Slogan"
 msgstr "Slogan"
 
-#: ../politch.php:187 ../includes/class-politch-post-type.php:184
+#: ../includes/class-politch-post-type.php:177
+msgid "The slogan of the candidate"
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:184 ../politch.php:187
 msgid "Ticket name"
 msgstr "Nom de liste"
 
-#: ../politch.php:188 ../includes/class-politch-post-type.php:191
+#: ../includes/class-politch-post-type.php:185
+msgid "Name of the electoral list."
+msgstr "Nom de liste électorale"
+
+#: ../includes/class-politch-post-type.php:191 ../politch.php:188
 msgid "Ticket number"
 msgstr "Numéro de liste"
 
-#: ../politch.php:189 ../includes/class-politch-post-type.php:198
+#: ../includes/class-politch-post-type.php:192
+msgid "Number of the electoral list."
+msgstr "Numéro de liste électorale."
+
+#: ../includes/class-politch-post-type.php:198 ../politch.php:189
 msgid "Candidate number"
 msgstr "Numéro de candidat"
 
-#: ../politch.php:190 ../includes/class-politch-post-type.php:205
+#: ../includes/class-politch-post-type.php:199
+msgid "Number of the candidate on the ticket"
+msgstr "Numéro de candidat sur la liste"
+
+#: ../includes/class-politch-post-type.php:205 ../politch.php:190
 msgid "District"
 msgstr "Cercle électoral"
 
-#: ../politch.php:191 ../frontend/politch-person.php:166
-#: ../frontend/politch-person.php:167 ../frontend/politch-person.php:236
-#: ../frontend/politch-person.php:238
-msgid "Smartvote"
-msgstr "Smartvote"
+#: ../includes/class-politch-post-type.php:206
+msgid "Electoral district"
+msgstr "Cercle électoral"
 
-#: ../politch.php:192 ../includes/class-politch-post-type.php:219
+#: ../includes/class-politch-post-type.php:212
+msgid "Smartvote Link"
+msgstr "Lien vers smartvote"
+
+#: ../includes/class-politch-post-type.php:213
+msgid "Link to the smartvote profile"
+msgstr "Lien vers le profil smartvote du candidat"
+
+#: ../includes/class-politch-post-type.php:219 ../politch.php:192
 msgid "Smartspider"
 msgstr "Smartspider"
+
+#: ../includes/class-politch-post-type.php:220
+msgid "Please upload smartspider"
+msgstr "Veuillez télécharger le smartspider."
+
+#: ../includes/class-politch-post-type.php:230
+msgid "Contact information"
+msgstr "Contact"
+
+#: ../includes/class-politch-post-type.php:237
+msgid "Email"
+msgstr "E-mail"
+
+#: ../includes/class-politch-post-type.php:238
+msgid "Email address"
+msgstr "Adresse e-mail"
+
+#: ../includes/class-politch-post-type.php:244 ../politch.php:194
+msgid "Phone"
+msgstr "Téléphone"
+
+#: ../includes/class-politch-post-type.php:245
+msgid "Phone number"
+msgstr "Numéro de téléphone fixe"
+
+#: ../includes/class-politch-post-type.php:251 ../politch.php:195
+msgid "Mobile"
+msgstr "Portable"
+
+#: ../includes/class-politch-post-type.php:252
+msgid "Mobilephone number"
+msgstr "Numéro de portable"
+
+#: ../includes/class-politch-post-type.php:259
+msgid "Website URL"
+msgstr "Lien vers le site web du candidat"
+
+#: ../includes/class-politch-post-type.php:266
+msgid "Facebook profile or page link."
+msgstr "Lien vers le profil ou la page Facebook ."
+
+#: ../includes/class-politch-post-type.php:273
+msgid "Twitter profile link."
+msgstr "Lien vers le profil Twitter."
+
+#: ../includes/class-politch-post-type.php:280
+msgid "LinkedIn profile link."
+msgstr "Lien vers le profil Linkedin."
+
+#: ../includes/class-politch-post-type.php:287
+msgid "Google Plus profile link."
+msgstr "Lien vers le profil Google Plus."
+
+#: ../includes/class-politch-post-type.php:294
+msgid "Youtube profile link."
+msgstr "Lien vers la chaine Youtube"
+
+#: ../includes/class-politch-post-type.php:301
+msgid "Vimeo profile link."
+msgstr "Lien vers la chaine Viméo."
+
+#: ../includes/class-politch-post-type.php:311
+msgid "Additional information"
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:318 ../politch.php:203
+msgid "Additional Information Title"
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:319
+msgid "Title of the additional inforamtion. Leave blank for no title."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:325 ../politch.php:204
+msgid "Additional Information Body"
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:326
+msgid ""
+"Add additional inforamtion here. Leave blank for no additional information."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:351
+msgid "Portrait"
+msgstr "Portrait"
+
+#: ../includes/class-politch-post-type.php:352
+msgid "ID"
+msgstr "ID"
+
+#: ../includes/class-politch-post-type.php:415
+msgid "Post updated."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:416
+msgid "Post published."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:417
+msgid "Post submitted."
+msgstr ""
+
+#: ../includes/class-politch-post-type.php:418
+msgid "Post draft updated."
+msgstr ""
+
+#: ../politch.php:174
+msgid "Visibility options"
+msgstr ""
 
 #: ../politch.php:193
 msgid "Mail"
 msgstr "E-mail"
 
-#: ../politch.php:194 ../includes/class-politch-post-type.php:244
-msgid "Phone"
-msgstr "Téléphone"
-
-#: ../politch.php:195 ../includes/class-politch-post-type.php:251
-msgid "Mobile"
-msgstr "Portable"
-
-#: ../politch.php:196 ../frontend/politch-person.php:110
-#: ../frontend/politch-person.php:111
-#: ../includes/class-politch-post-type.php:258
-msgid "Website"
-msgstr "Site web"
-
-#: ../politch.php:197 ../frontend/politch-person.php:118
-#: ../frontend/politch-person.php:119
-#: ../includes/class-politch-post-type.php:265
-msgid "Facebook"
-msgstr "Facebook"
-
-#: ../politch.php:198 ../frontend/politch-person.php:126
-#: ../frontend/politch-person.php:127
-#: ../includes/class-politch-post-type.php:272
-msgid "Twitter"
-msgstr "Twitter"
-
-#: ../politch.php:199 ../frontend/politch-person.php:134
-#: ../frontend/politch-person.php:135
-#: ../includes/class-politch-post-type.php:279
-msgid "LinkedIn"
-msgstr "LinkedIN"
-
 #: ../politch.php:200
 msgid "Google+"
 msgstr "Google+"
-
-#: ../politch.php:201 ../frontend/politch-person.php:150
-#: ../frontend/politch-person.php:151
-#: ../includes/class-politch-post-type.php:293
-msgid "Youtube"
-msgstr "Youtube"
-
-#: ../politch.php:202 ../frontend/politch-person.php:158
-#: ../frontend/politch-person.php:159
-#: ../includes/class-politch-post-type.php:300
-msgid "Vimeo"
-msgstr "Vimeo"
-
-#: ../politch.php:203 ../includes/class-politch-post-type.php:318
-msgid "Additional Information Title"
-msgstr ""
-
-#: ../politch.php:204 ../includes/class-politch-post-type.php:325
-msgid "Additional Information Body"
-msgstr ""
 
 #: ../politch.php:223
 msgid ""
@@ -273,366 +624,13 @@ msgstr ""
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: ../politch.php:718
+#: ../politch.php:725
 msgid "Insert people"
 msgstr "Insérer des personnes"
 
-#: ../politch.php:720
+#: ../politch.php:727
 msgid "Add people"
 msgstr "Ajouter des personnes"
-
-#: ../admin/options.php:2
-msgid "People options"
-msgstr ""
-
-#: ../admin/short-code-generator.php:8
-msgid "Chose type"
-msgstr ""
-
-#: ../admin/short-code-generator.php:9
-msgid "Single person"
-msgstr "Personne seule"
-
-#: ../admin/short-code-generator.php:17
-msgid "No people available."
-msgstr "Aucune personne disponible."
-
-#: ../admin/short-code-generator.php:19 ../admin/short-code-generator.php:20
-msgid "Chose person"
-msgstr "Sélectionner une personne"
-
-#: ../admin/short-code-generator.php:30 ../admin/short-code-generator.php:43
-msgid "No groups available."
-msgstr "Aucun groupe disponible."
-
-#: ../admin/short-code-generator.php:32 ../admin/short-code-generator.php:33
-#: ../admin/short-code-generator.php:45
-msgid "Chose group"
-msgstr "Sélectionner un groupe"
-
-#: ../admin/short-code-generator.php:55
-msgid "Show election info"
-msgstr "Montrer les informations électorales"
-
-#: ../admin/short-code-generator.php:58
-msgid "Insert shortcode"
-msgstr "Insérer un shortcode"
-
-#: ../frontend/politch-person.php:69
-#, php-format
-msgctxt "Read more arrow"
-msgid "%s Read more"
-msgstr "%s plus d'infos"
-
-#: ../frontend/politch-person.php:83
-msgid "Mail:"
-msgstr "E-mail:"
-
-#: ../frontend/politch-person.php:92
-msgid "Phone:"
-msgstr "Numéro de téléphone:"
-
-#: ../frontend/politch-person.php:101
-msgid "Mobile:"
-msgstr "Portable:"
-
-#: ../frontend/politch-person.php:142 ../frontend/politch-person.php:143
-#: ../includes/class-politch-post-type.php:286
-msgid "Google Plus"
-msgstr "Google Plus"
-
-#: ../frontend/politch-person.php:186
-msgid "Election info"
-msgstr "Informations de vote"
-
-#: ../frontend/politch-person.php:200
-msgid "Ticket name:"
-msgstr "Nom de liste:"
-
-#: ../frontend/politch-person.php:209
-msgid "Ticket number:"
-msgstr "Numéro de liste:"
-
-#: ../frontend/politch-person.php:218
-msgid "Candidate number:"
-msgstr "Numéro de candidat:"
-
-#: ../frontend/politch-person.php:227
-msgid "District:"
-msgstr "Cercle électoral:"
-
-#: ../includes/class-politch-frontend.php:28
-msgid "Unknown shortcode or invalid arguments."
-msgstr "Shortcode inconnu ou arguments non-valables."
-
-#: ../includes/class-politch-frontend.php:196
-#, php-format
-msgid "No people found in the group \"%s\"."
-msgstr "Aucune personne n'a été trouvée au sein du groupe \"%s\"."
-
-#: ../includes/class-politch-frontend.php:221
-msgid "Blank avatar"
-msgstr "Avatar"
-
-#: ../includes/class-politch-post-type.php:31
-#: ../includes/class-politch-post-type.php:42
-#: ../includes/class-politch-post-type.php:45
-msgid "People"
-msgstr "Personnes"
-
-#: ../includes/class-politch-post-type.php:32
-msgid "Person"
-msgstr "Personne"
-
-#: ../includes/class-politch-post-type.php:33
-msgid "Add New Person"
-msgstr "Ajouter une personne"
-
-#: ../includes/class-politch-post-type.php:34
-msgid "Add New"
-msgstr "Ajouter"
-
-#: ../includes/class-politch-post-type.php:35
-msgid "Edit Person"
-msgstr "Modifier la personne"
-
-#: ../includes/class-politch-post-type.php:36
-msgid "New Person"
-msgstr "Nouvelle personne"
-
-#: ../includes/class-politch-post-type.php:37
-msgid "View Person"
-msgstr "Voir la personne"
-
-#: ../includes/class-politch-post-type.php:38
-msgid "Search Person"
-msgstr "Chercher une personne"
-
-#: ../includes/class-politch-post-type.php:39
-msgid "Not found any People"
-msgstr "Aucune personne correspondante n'a été trouvée."
-
-#: ../includes/class-politch-post-type.php:40
-msgid "No Person found in Trash"
-msgstr "Aucune personne correspondante n'a été trouvée dans la corbeille."
-
-#: ../includes/class-politch-post-type.php:41
-msgid "Parent Person:"
-msgstr "Personne parente:"
-
-#: ../includes/class-politch-post-type.php:66
-#: ../includes/class-politch-post-type.php:81
-msgid "Groups"
-msgstr "Groupes"
-
-#: ../includes/class-politch-post-type.php:67
-msgid "Group"
-msgstr "Groupe"
-
-#: ../includes/class-politch-post-type.php:68
-msgid "Search Groups"
-msgstr "Rechercher des groupes"
-
-#: ../includes/class-politch-post-type.php:69
-msgid "Popular Groups"
-msgstr "Groupes préférés"
-
-#: ../includes/class-politch-post-type.php:70
-msgid "All Groups"
-msgstr "Tous les groupes"
-
-#: ../includes/class-politch-post-type.php:73
-msgid "Edit Group"
-msgstr "Modifier le groupe"
-
-#: ../includes/class-politch-post-type.php:74
-msgid "Update Group"
-msgstr "Mettre à jour le groupe"
-
-#: ../includes/class-politch-post-type.php:75
-msgid "Add New Group"
-msgstr "Ajouter un groupe"
-
-#: ../includes/class-politch-post-type.php:76
-msgid "New Group Name"
-msgstr "Renommer le groupe"
-
-#: ../includes/class-politch-post-type.php:77
-msgid "Separate Groups with commas"
-msgstr "Séparer les groupes par des virgules"
-
-#: ../includes/class-politch-post-type.php:78
-msgid "Add or remove Groups"
-msgstr "Ajouter ou supprimer des groupes"
-
-#: ../includes/class-politch-post-type.php:79
-msgid "Choose from the most used Groups"
-msgstr "Sélectionner parmi les groupes préférés"
-
-#: ../includes/class-politch-post-type.php:80
-msgid "No Groups found."
-msgstr "Aucun groupe ne correspond à ces critères."
-
-#: ../includes/class-politch-post-type.php:106
-#: ../includes/class-politch-post-type.php:400
-msgid "Election only"
-msgstr "Apparaitra uniquement sur le profil de vote"
-
-#: ../includes/class-politch-post-type.php:110
-msgid "Personal information"
-msgstr "Infos sur la personne"
-
-#: ../includes/class-politch-post-type.php:118
-msgid "Year of birth. Ex: 1970"
-msgstr "Année de naissance, p.ex: 1970"
-
-#: ../includes/class-politch-post-type.php:128
-msgctxt "Place of residence"
-msgid "Hometown"
-msgstr "Commune"
-
-#: ../includes/class-politch-post-type.php:135
-msgid "List of the current roles of this person. Use a comma to separate them."
-msgstr ""
-"Liste des fonctions actuelles de cette personne. Veuillez utiliser des "
-"virgules entre chaque fonction."
-
-#: ../includes/class-politch-post-type.php:142
-msgid "Very short curivulum vitae (2-3 lines)."
-msgstr "Biographie très courte (2-3 lignes)"
-
-#: ../includes/class-politch-post-type.php:150
-msgid ""
-"List of organizations where this person has mandates. Use one line per "
-"organization."
-msgstr "Liste des mandats de cette personne. Un mandat par ligne."
-
-#: ../includes/class-politch-post-type.php:158
-msgid ""
-"List of organizations where this person is a member of. Use one line per "
-"organization."
-msgstr "Liste des affiliations de cette personne. Une association par ligne."
-
-#: ../includes/class-politch-post-type.php:169
-msgid "Election information"
-msgstr "Informations sur les élections"
-
-#: ../includes/class-politch-post-type.php:177
-msgid "The slogan of the candidate"
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:185
-msgid "Name of the electoral list."
-msgstr "Nom de liste électorale"
-
-#: ../includes/class-politch-post-type.php:192
-msgid "Number of the electoral list."
-msgstr "Numéro de liste électorale."
-
-#: ../includes/class-politch-post-type.php:199
-msgid "Number of the candidate on the ticket"
-msgstr "Numéro de candidat sur la liste"
-
-#: ../includes/class-politch-post-type.php:206
-msgid "Electoral district"
-msgstr "Cercle électoral"
-
-#: ../includes/class-politch-post-type.php:212
-msgid "Smartvote Link"
-msgstr "Lien vers smartvote"
-
-#: ../includes/class-politch-post-type.php:213
-msgid "Link to the smartvote profile"
-msgstr "Lien vers le profil smartvote du candidat"
-
-#: ../includes/class-politch-post-type.php:220
-msgid "Please upload smartspider"
-msgstr "Veuillez télécharger le smartspider."
-
-#: ../includes/class-politch-post-type.php:230
-msgid "Contact information"
-msgstr "Contact"
-
-#: ../includes/class-politch-post-type.php:237
-msgid "Email"
-msgstr "E-mail"
-
-#: ../includes/class-politch-post-type.php:238
-msgid "Email address"
-msgstr "Adresse e-mail"
-
-#: ../includes/class-politch-post-type.php:245
-msgid "Phone number"
-msgstr "Numéro de téléphone fixe"
-
-#: ../includes/class-politch-post-type.php:252
-msgid "Mobilephone number"
-msgstr "Numéro de portable"
-
-#: ../includes/class-politch-post-type.php:259
-msgid "Website URL"
-msgstr "Lien vers le site web du candidat"
-
-#: ../includes/class-politch-post-type.php:266
-msgid "Facebook profile or page link."
-msgstr "Lien vers le profil ou la page Facebook ."
-
-#: ../includes/class-politch-post-type.php:273
-msgid "Twitter profile link."
-msgstr "Lien vers le profil Twitter."
-
-#: ../includes/class-politch-post-type.php:280
-msgid "LinkedIn profile link."
-msgstr "Lien vers le profil Linkedin."
-
-#: ../includes/class-politch-post-type.php:287
-msgid "Google Plus profile link."
-msgstr "Lien vers le profil Google Plus."
-
-#: ../includes/class-politch-post-type.php:294
-msgid "Youtube profile link."
-msgstr "Lien vers la chaine Youtube"
-
-#: ../includes/class-politch-post-type.php:301
-msgid "Vimeo profile link."
-msgstr "Lien vers la chaine Viméo."
-
-#: ../includes/class-politch-post-type.php:311
-msgid "Additional information"
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:319
-msgid "Title of the additional inforamtion. Leave blank for no title."
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:326
-msgid ""
-"Add additional inforamtion here. Leave blank for no additional information."
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:351
-msgid "Portrait"
-msgstr "Portrait"
-
-#: ../includes/class-politch-post-type.php:352
-msgid "ID"
-msgstr "ID"
-
-#: ../includes/class-politch-post-type.php:415
-msgid "Post updated."
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:416
-msgid "Post published."
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:417
-msgid "Post submitted."
-msgstr ""
-
-#: ../includes/class-politch-post-type.php:418
-msgid "Post draft updated."
-msgstr ""
 
 #: ../vendor/class-tgm-plugin-activation.php:348
 #, php-format
