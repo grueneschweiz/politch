@@ -319,14 +319,14 @@ if ( ! class_exists( 'Politch_Post_Type' ) ) {
 						'desc' => __('Title of the additional inforamtion. Leave blank for no title.','politch' ) . $this->get_visibility_notice( 'additional_information_title' ),
 						'id'   => $prefix . 'additional_information_title',
 						'type' => 'text',
-						'std'  => __( '', 'politch' ),
+						'std'  => '',
 					),
 					array(
 						'name' => __('Additional Information Body','politch' ),
 						'desc' => __('Add additional inforamtion here. Leave blank for no additional information.','politch' ) . $this->get_visibility_notice( 'additional_information_body' ),
 						'id'   => $prefix . 'additional_information_body',
 						'type' => 'wysiwyg',
-						'std'  => __( '', 'politch' ),
+						'std'  => '',
 					),
 				)
 			);
